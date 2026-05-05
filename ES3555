@@ -1,0 +1,1074 @@
+DATA LIST FILE= 'DA3555'
+/ESTUDIO 1-4 ENTREV 5-9 REGISTRO 10-15 CUES 16-19 TIPO_TEL 20 CCAA 21-22 PROV 23-24 
+ MUN 25-27 TAMUNI 28 CAPITAL 29 SEXO 30 EDAD 31-32 NACIONALIDAD 33 ADQUINAC 34 PAISNAC 35 
+ PAISNAC2 36-38 P1 39 P2 40 P3 41 P4_1 42 P4_2 43 P4_3 44 P4_4 45 P4_5 46 P4_6 47 P4_7 48 
+ P5 49 P6 50-51 P7 52 P8 53-54 P9 55-56 P10 57-58 P10A 59 P11 60 P12 61-62 P13 63-64 
+ P14 65-66 P15_A_1 67 P15_A_2 68 P15_A_3 69 P15_A_4 70 P15_A_5 71 P15_A_6 72 P15_B_1 73 
+ P15_B_2 74 P15_B_3 75 P15_B_4 76 P15_B_5 77 P15_B_6 78 P16 79 P17 80 P18_A_1 81 
+ P18_A_2 82 P18_A_3 83 P18_A_4 84 P18_B_1 85 P18_B_2 86 P18_B_3 87 P18_B_4 88 P19 89-90 
+ P20 91 P21_1 92 P21_2 93 P21_3 94 P22_A_1 95 P22_A_2 96 P22_A_3 97 P22_A_4 98 P22_A_5 99 
+ P22_A_6 100 P22_A_7 101 P22_B_1 102 P22_B_2 103 P22_B_3 104 P22_B_4 105 P22_B_5 106 
+ P22_B_6 107 P22_B_7 108 ESCIDEOL 109-110 PROBVOTO 111-112 INTENCIONGR 113-116 
+ SIMPATIA 117-120 VOTOSIMGR 121-124 PREFPTE 125-126 P28 127 PARTICIPACIONG 128 
+ RECUVOTOG 129-132 CERCANIA 133-136 CERCANIAR2 137-140 ESCUELA 141 NIVELESTENTREV 142-143 
+ RELIGION 144 PRACTICARELIG6 145 ECIVIL 146 SITLAB 147 RELALAB 148 CNO11 149-150 
+ INGRESHOG 151 CLASESOCIAL 152-153 SINCERIDAD 154 V2_1 155 V2_2 156 V2_3 157 V3 158 
+ IA_I501 159-164 IA_I502 165-170 IA_I503 171-176 IA_I504 177-182 IA_I505 183-188 
+ IA_I506 189-194 IA_I507 195-200 IA_I508 201-206 IA_I509 207-212 IA_I510 213-218 
+ IA_I511 219-224 IA_I512 225-230 IA_I513 231-236 IA_I514 237-242 IA_I515 243-248 
+ IA_I516 249-254 IA_I517 255-260 IA_I518 261-266 IA_I519 267-272 IA_I520 273-278 
+ IA_I521 279-284 IA_I522 285-290 IA_I523 291-296 IA_I524 297-302 IA_I525 303-308 
+ IA_I526 309-314 IA_I528 315-320 IA_I529 321-326 IA_I530 327-332 IA_I531 333-338 
+ IA_I532 339-344 IA_I533 345-350 IA_I534 351-356 IA_I535 357-362 IA_I536 363-368 
+ IA_I537 369-374 IA_I538 375-380 IA_I539 381-386 IA_I540 387-392 IA_I541 393-398 
+ IA_I542 399-404 IA_I543 405-410 IA_OBS1 411-418(2) IA_OBS2 419-426(2) IA_E1_DIA 427-428 
+ IA_E1_MES 429-430 IA_E1_ANYO 431-432 IA_E2 433 IA_E3 434-436 IA_E4 437 IA_VALIDA 438 
+ IA_APLAZADA 439 IA_MODIFICADA 440 IA_SUPERVISADA 441 IA_C2 442 IA_C2A 443 IA_C2B_26 444 
+ IA_C2B_27 445 IA_C2B_28 446 IA_C2B_29 447 IA_C2B_30 448 IA_C2B_31 449 IA_C2B_32 450 
+ IA_C2B_33 451 IA_C2B_34 452 IA_C2B_35 453 IA_C2B_36 454 IA_C2B_37 455 IA_C2B_38 456 
+ IA_C2B_39 457 IA_C2B_40 458 IA_C2B_41 459 IA_C2B_42 460 IA_C2B_43 461 IA_C2B_44 462 
+ IA_C2B_45 463 IA_C3 464 IA_C4 465-469 INTENCIONG 470-473 SIMPATIAR 474-477 
+ VOTOSIMG 478-481 RECUVOTOGR 482-485 RECUERDO 486-489 CERCANIAR 490-493 ESTUDIOS 494 
+ CNO11R 495-496 CLASESUB 497 PESO 498-504(5) PESOCCAA 505-511(5) .
+
+VARIABLE LABELS
+ESTUDIO 'Código del estudio'
+/ENTREV 'Entrevistador/a'
+/REGISTRO 'Número de registro'
+/CUES 'Cuestionario'
+/TIPO_TEL 'Tipo de teléfono'
+/CCAA 'Comunidad autónoma'
+/PROV 'Provincia'
+/MUN 'Municipio'
+/TAMUNI 'Tamaño de municipio'
+/CAPITAL 'Capital'
+/SEXO 'Sexo de la persona entrevistada'
+/EDAD 'Edad de la persona entrevistada'
+/NACIONALIDAD 'Nacionalidad de la persona entrevistada'
+/ADQUINAC 'Momento de la adquisición de la nacionalidad española'
+/PAISNAC 'Lugar de nacimiento (país)'
+/PAISNAC2 'Lugar de nacimiento de los nacidos fuera de España (país)'
+/P1 'Grado de importancia de tener una relación sentimental para una vida satisfactoria'
+/P2 'Grado de importancia de la convivencia en una misma casa en una relación sentimental'
+/P3 'Grado de importancia de la independencia económica en una relación sentimental'
+/P4_1 'Son más inestables que antes'
+/P4_2 'Permiten mayor libertad individual'
+/P4_3 'Generan más incertidumbres'
+/P4_4 'Son más igualitarias entre hombres y mujeres'
+/P4_5 'Son más placenteras'
+/P4_6 'Están menos influidas por prejuicios'
+/P4_7 'Han sido transformadas profundamente por las redes sociales e Internet'
+/P5 'Tenencia de una relación sentimental en la actualidad'
+/P6 'Definición de la relación sentimental de la persona entrevistada'
+/P7 'Convivencia en la relación sentimental'
+/P8 'Plan de futuro para la persona entrevistada que no convive en su relación sentimental'
+/P9 'Situación afectiva o sexual de la persona entrevistada que no tiene una relación sentimental en la actualidad'
+/P10 'Plan de futuro a 5 años para la persona entrevistada que no tiene una relación sentimental en la actualidad'
+/P10A 'Definición de la relación sentimental de la persona entrevistada dentro de 5 años'
+/P11 'Experiencias sexuales (últimos 12 meses)'
+/P12 'Motivo para no tener relaciones sexuales (últimos 12 meses)'
+/P13 'Orientación sexual de la persona entrevistada'
+/P14 'Identidad de género de la persona entrevistada'
+/P15_A_1 'Relaciones abiertas o no exclusivas'
+/P15_A_2 'Intercambio de parejas'
+/P15_A_3 'Prácticas de dominación y sumisión'
+/P15_A_4 'Fetichismos específicos'
+/P15_A_5 'Encuentros sexuales grupales, orgías'
+/P15_A_6 'Relaciones afectivas con varias personas a la vez, poliamor'
+/P15_B_1 'Relaciones abiertas o no exclusivas'
+/P15_B_2 'Intercambio de parejas'
+/P15_B_3 'Prácticas de dominación y sumisión'
+/P15_B_4 'Fetichismos específicos'
+/P15_B_5 'Encuentros sexuales grupales, orgías'
+/P15_B_6 'Relaciones afectivas con varias personas a la vez, poliamor'
+/P16 'Autopercepción en relación a prácticas sexuales (abierto-conservador/a)'
+/P17 'Utilización de objetos para estimular el placer erótico'
+/P18_A_1 'Juguetes sexuales'
+/P18_A_2 'Aceites, lubricantes y otra cosmética erótica'
+/P18_A_3 'Ropa, lencería o accesorios eróticos'
+/P18_A_4 'Otros objetos no destinados a la estimulación sexual'
+/P18_B_1 'Juguetes sexuales'
+/P18_B_2 'Aceites, lubricantes y otra cosmética erótica'
+/P18_B_3 'Ropa, lencería o accesorios eróticos'
+/P18_B_4 'Otros objetos no destinados a la estimulación sexual'
+/P19 'Motivo principal para utilizar objetos que estimulan el placer erótico'
+/P20 'Disposición a tener experiencias sexuales con robots humanoides diseñados con fines sexuales'
+/P21_1 'Saber que tu pareja usa juguetes sexuales en solitario genera presión en las relaciones sexuales'
+/P21_2 'El uso de juguetes eróticos enriquece la vida sexual'
+/P21_3 'El placer erótico es cada vez más individual que compartido'
+/P22_A_1 'Inseminación artificial'
+/P22_A_2 'Fecundación in vitro'
+/P22_A_3 'Inyección de espermatozoides'
+/P22_A_4 'Análisis genético de los embriones antes de transferirlos para prevenir enfermedades genéticas'
+/P22_A_5 'Congelación de óvulos o de semen'
+/P22_A_6 'Donación de embriones'
+/P22_A_7 'Recepción de óvulos por parte de otra mujer'
+/P22_B_1 'Inseminación artificial'
+/P22_B_2 'Fecundación in vitro'
+/P22_B_3 'Inyección de espermatozoides'
+/P22_B_4 'Análisis genético de los embriones antes de transferirlos para prevenir enfermedades genéticas'
+/P22_B_5 'Congelación de óvulos o de semen'
+/P22_B_6 'Donación de embriones'
+/P22_B_7 'Recepción de óvulos por parte de otra mujer'
+/ESCIDEOL 'Escala de autoubicación ideológica (1-10)'
+/PROBVOTO 'Escala de probabilidad de voto (0-10) en elecciones generales'
+/INTENCIONGR 'Intención de voto en unas supuestas elecciones generales [recodificada]'
+/SIMPATIA 'Partido político por el que se siente más simpatía en las elecciones generales (con filtro)'
+/VOTOSIMGR 'Voto+simpatía en supuestas elecciones generales entre quienes mencionan un partido concreto [recodificada]'
+/PREFPTE 'Preferencia personal como presidente del Gobierno central'
+/P28 'Grado de acuerdo con la decisión del Gobierno de no permitir el uso de las bases conjuntas hispano-americanas en España para realizar bombardeos en Irán'
+/PARTICIPACIONG 'Participación electoral en las elecciones generales de 2023'
+/RECUVOTOG 'Recuerdo de voto en las elecciones generales de 2023 de los votantes'
+/CERCANIA 'Partido político que considera más cercano a sus ideas'
+/CERCANIAR2 'Partido político que considera más cercano a sus ideas entre quienes mencionan un partido concreto [recodificada]'
+/ESCUELA 'Escolarización de la persona entrevistada'
+/NIVELESTENTREV 'Nivel de estudios alcanzado por la persona entrevistada'
+/RELIGION 'Religiosidad de la persona entrevistada'
+/PRACTICARELIG6 'Frecuencia de asistencia a oficios religiosos'
+/ECIVIL 'Estado civil de la persona entrevistada'
+/SITLAB 'Situación laboral de la persona entrevistada'
+/RELALAB 'Situación profesional de la persona entrevistada'
+/CNO11 'Ocupación de la persona entrevistada'
+/INGRESHOG 'Nivel de ingresos netos del hogar'
+/CLASESOCIAL 'Clase social subjetiva de la persona entrevistada'
+/SINCERIDAD 'Grado de sinceridad de la persona entrevistada según el/la entrevistador/a'
+/V2_1 'Ha expresado deseo de abandonar la entrevista antes de finalizarla'
+/V2_2 'Se ha sentido incómoda por el tema de la entrevista'
+/V2_3 'Ha tenido prisa por acabar la entrevista'
+/V3 'Detección de terceras personas en el transcurso de la entrevista'
+/IA_I501 'Dificultad de acceso al edificio, casa, urbanización, etc.'
+/IA_I502 'Viviendas en las que no hay nadie'
+/IA_I503 'Viviendas en las que se niegan a recibir ninguna explicación'
+/IA_I504 'Negativas de hombres a realizar la entrevista'
+/IA_I505 'Negativas de mujeres a realizar la entrevista'
+/IA_I506 'Contactos fallidos por no cumplir cuotas'
+/IA_I507 'Contactos fallidos por no ser una vivienda (oficinas, consultas médicas, etc.)'
+/IA_I508 'Viviendas de población extranjera'
+/IA_I509 '01.  No quiere colaborar'
+/IA_I510 '02.  Falta de tiempo. Está muy ocupado/a'
+/IA_I511 '03.  Falta de interés por hacer una encuesta'
+/IA_I512 '04.  Desconfianza hacia las encuestas'
+/IA_I513 '05.  Desconfianza hacia el CIS'
+/IA_I514 '06.  Rehúsa porque su pareja/familia/hogar no quiere'
+/IA_I515 '07.  Lo considera una pérdida de tiempo'
+/IA_I516 '08.  No sabe lo suficiente/nada del tema, demasiado difícil'
+/IA_I517 '09.  El tema no le interesa'
+/IA_I518 '10.  Resulta demasiada larga'
+/IA_I519 '11.  No le gusta el ordenador'
+/IA_I520 '96. Otras'
+/IA_I521 '99. No contesta'
+/IA_I522 '00. Error al iniciar'
+/IA_I523 'Teléfono apagado/fuera de cobertura'
+/IA_I524 'Negativas a realizar la entrevista'
+/IA_I525 'Interrupción llamada'
+/IA_I526 'Dificultad con el idioma'
+/IA_I528 'Contacto fallido por no ser una vivienda/persona'
+/IA_I529 'Contacto fallido por no ser elegible'
+/IA_I530 'Incapacidad para responder/ininteligible'
+/IA_I531 'Otras'
+/IA_I532 'No le gusta dar información por teléfono'
+/IA_I533 'No tiene la garantía de la privaciad de sus datos'
+/IA_I534 'Difitultad con el idioma'
+/IA_I535 'Incapacidad para responder/ininteligible'
+/IA_I536 'No elegible'
+/IA_I537 'Rechazo por falta de tiempo o de interés en la encuesta'
+/IA_I538 'Rechazo por desconfianza hacia las encuestas'
+/IA_I539 'Rechazo por desconfianza hacia el CIS'
+/IA_I540 'Rechazo por desconfiar de la llamada o por mantener la privacidad'
+/IA_I541 'Rechaza ser encuestado/a en el idioma del cuestionario'
+/IA_I542 'Rechazo por otras razones o sin dar explicaciones'
+/IA_I543 'Otras incidencias'
+/IA_OBS1 'Pregunta incómoda'
+/IA_OBS2 'Pregunta explicada'
+/IA_E1_DIA 'Día de realización'
+/IA_E1_MES 'Mes de realización'
+/IA_E1_ANYO 'Año de realización'
+/IA_E2 'Día de la semana que se realiza la entrevista'
+/IA_E3 'Duración de la entrevista en minutos'
+/IA_E4 'Hora de realización'
+/IA_VALIDA 'Entrevista válida'
+/IA_APLAZADA 'Entrevista con aplazamientos'
+/IA_MODIFICADA 'Entrevista modificada'
+/IA_SUPERVISADA 'Entrevista supervisada'
+/IA_C2 'Valoración de la supervisión'
+/IA_C2A 'Resultado supervisión'
+/IA_C2B_26 'No hay grabación'
+/IA_C2B_27 'No realizada a la persona de la que se recogen los datos'
+/IA_C2B_28 'No verifica o graba correctamente el sexo'
+/IA_C2B_29 'No verifica o graba correctamente la edad'
+/IA_C2B_30 'No verifica correctamente los valores de cuota distintos a sexo y edad'
+/IA_C2B_31 'No respeta las normas de selección'
+/IA_C2B_32 'No se realiza en un teléfono personal /domicilio'
+/IA_C2B_33 'No lee el protocolo de inicio o fin de la encuesta'
+/IA_C2B_34 'No lee literalmente el protocolo de protección de datos'
+/IA_C2B_35 'No formula todas las preguntas'
+/IA_C2B_36 'Entrevista interrumpida y autocompletada'
+/IA_C2B_37 'No aplica el cuestionario en el idioma en que fue diseñado'
+/IA_C2B_38 'No lee literalmente las preguntas y/o las opciones de respuesta'
+/IA_C2B_39 'No aplica el cuestionario sin inducir la respuesta'
+/IA_C2B_40 'No aplica la instrucción NO LEER en las opciones de respuesta donde se indica'
+/IA_C2B_41 'No codifica correctamente las respuestas'
+/IA_C2B_42 'No aplica correctamente las preguntas abiertas'
+/IA_C2B_43 'No aplica correctamente las preguntas de respuesta múltiple'
+/IA_C2B_44 'No recoge correctamente las respuestas que no requieren codificación'
+/IA_C2B_45 'No recoge fielmente las respuestas espontáneas'
+/IA_C3 'Resultado final'
+/IA_C4 'Supervisor'
+/INTENCIONG 'Intención de voto en supuestas elecciones generales'
+/SIMPATIAR 'Partido político por el que se siente más simpatía en las elecciones generales (con filtro) [recodificada]'
+/VOTOSIMG 'Voto+simpatía en supuestas elecciones generales [recodificada]'
+/RECUVOTOGR 'Recuerdo de voto en las elecciones generales de 2023 de los votantes [recodificada]'
+/RECUERDO 'Participación + Recuerdo de voto en las elecciones generales de 2023'
+/CERCANIAR 'Partido político que considera más cercano a sus ideas [recodificada]'
+/ESTUDIOS 'Estudios de la persona entrevistada'
+/CNO11R 'Población activa e inactiva'
+/CLASESUB 'Identificación subjetiva de clase'
+/PESO 'Ponderación con ajuste por Estudios'
+/PESOCCAA 'Ponderación autonómica con ajuste por Estudios'
+.
+
+VALUE LABELS
+ESTUDIO
+/ENTREV
+0 'Anonimizado'
+/TIPO_TEL
+1 'Fijo' 2 'Móvil'
+/CCAA
+1 'Andalucía' 2 'Aragón' 3 'Asturias (Principado de)' 4 'Balears (Illes)' 5 'Canarias'
+6 'Cantabria' 7 'Castilla-La Mancha' 8 'Castilla y León' 9 'Cataluña'
+10 'Comunitat Valenciana' 11 'Extremadura' 12 'Galicia' 13 'Madrid (Comunidad de)'
+14 'Murcia (Región de)' 15 'Navarra (Comunidad Foral de)' 16 'País Vasco' 17 'Rioja (La)'
+18 'Ceuta (Ciudad Autónoma de)' 19 'Melilla (Ciudad Autónoma de)'
+/PROV
+1 'Araba/Álava' 2 'Albacete' 3 'Alicante/Alacant' 4 'Almería' 33 'Asturias' 5 'Ávila'
+6 'Badajoz' 7 'Balears (Illes)' 8 'Barcelona' 9 'Burgos' 10 'Cáceres' 11 'Cádiz'
+39 'Cantabria' 12 'Castellón/Castelló' 13 'Ciudad Real' 14 'Córdoba' 15 'Coruña (A)'
+16 'Cuenca' 17 'Girona' 18 'Granada' 19 'Guadalajara' 20 'Gipuzkoa' 21 'Huelva'
+22 'Huesca' 23 'Jaén' 24 'León' 25 'Lleida' 27 'Lugo' 28 'Madrid' 29 'Málaga' 30 'Murcia'
+31 'Navarra' 32 'Ourense' 34 'Palencia' 35 'Palmas (Las)' 36 'Pontevedra' 26 'Rioja (La)'
+37 'Salamanca' 38 'Santa Cruz de Tenerife' 40 'Segovia' 41 'Sevilla' 42 'Soria'
+43 'Tarragona' 44 'Teruel' 45 'Toledo' 46 'Valencia/València' 47 'Valladolid' 48 'Bizkaia'
+49 'Zamora' 50 'Zaragoza' 51 'Ceuta' 52 'Melilla'
+/MUN
+0 'Mun.<=100.000 hab. no capitales de CA o provincia' 1 'Ceuta / Melilla' 3 'Albacete'
+4 'Algeciras' 5 'Alcalá de Henares' 6 'Alcobendas' 7 'Alcorcón' 12 'Cádiz'
+13 'Almería / Barakaldo' 14 'Alicante/Alacant' 15 'Badalona / Badajoz'
+16 'Cartagena / Palmas de Gran Canaria (Las)' 19 'Ávila / Barcelona'
+20 'Bilbao / Jerez de la Frontera' 21 'Córdoba' 23 'La Laguna' 24 'Gijón' 26 'Telde'
+28 'Lugo' 30 'Coruña (A) / Murcia' 34 'Ciudad Real' 37 'Cáceres'
+38 'Pontevedra / Santa Cruz de Tenerife / Dos Hermanas'
+40 'Castellón de la Plana/Castelló de la Plana / Palma de Mallorca' 41 'Huelva'
+44 'Oviedo' 50 'Jaén' 54 'Ourense' 57 'Vigo' 58 'Fuenlabrada'
+59 'Burgos / Vitoria-Gasteiz' 65 'Elche/Elx / Getafe' 67 'Málaga'
+69 'Donostia/San Sebastián / Marbella' 74 'Leganés' 75 'Santander'
+78 'Cuenca / Santiago de Compostela' 79 'Girona / Madrid / Roquetas de Mar' 83 'Mérida'
+87 'Granada' 89 'León / Logroño' 91 'Sevilla' 92 'Móstoles' 101 'Hospitalet de Llobregat'
+106 'Parla' 120 'Lleida / Palencia' 121 'Mataró' 123 'Reus / Rivas-Vaciamadrid'
+125 'Huesca' 130 'Guadalajara' 148 'Tarragona / Torrejón de Ardoz' 168 'Toledo'
+173 'Soria' 186 'Valladolid' 187 'Sabadell' 194 'Segovia' 201 'Pamplona/Iruña'
+216 'Teruel' 245 'Santa Coloma de Gramenet' 250 'València' 274 'Salamanca' 275 'Zamora'
+279 'Terrassa' 297 'Zaragoza'
+/TAMUNI
+1 'Menos o igual a 2.000 habitantes' 2 '2.001 a 10.000 habitantes'
+3 '10.001 a 50.000 habitantes' 4 '50.001 a 100.000 habitantes'
+5 '100.001 a 400.000 habitantes' 6 '400.001 a 1.000.000 habitantes'
+7 'Más de 1.000.000 habitantes'
+/CAPITAL
+1 'Capital de CC.AA.' 2 'Capital de provincia' 3 'Otros municipios'
+/SEXO
+1 'Hombre' 2 'Mujer'
+/EDAD
+99 'N.C.'
+/NACIONALIDAD
+1 'La nacionalidad española' 2 'La nacionalidad española y otra' 3 'Otra nacionalidad'
+/ADQUINAC
+1 'Desde que nació' 2 'La ha adquirido con posterioridad' 9 'N.C.' 0 'N.P.'
+/PAISNAC
+1 'En España' 2 'En otro país' 9 'N.C.'
+/PAISNAC2
+101 'Albania' 102 'Austria' 103 'Bélgica' 104 'Bulgaria' 106 'Chipre' 107 'Dinamarca'
+109 'Finlandia' 110 'Francia' 111 'Grecia' 112 'Hungría' 113 'Irlanda' 114 'Islandia'
+115 'Italia' 116 'Liechtenstein' 117 'Luxemburgo' 118 'Malta' 119 'Mónaco' 120 'Noruega'
+121 'Países Bajos' 122 'Polonia' 123 'Portugal' 124 'Andorra' 125 'Reino Unido'
+126 'Alemania' 128 'Rumanía' 129 'San Marino' 130 'Santa Sede' 131 'Suecia' 132 'Suiza'
+135 'Ucrania' 136 'Letonia' 137 'Moldavia' 138 'Bielorrusia' 139 'Georgia' 141 'Estonia'
+142 'Lituania' 143 'República Checa' 144 'República Eslovaca' 145 'Bosnia Herzegovina'
+146 'Croacia' 147 'Eslovenia' 148 'Armenia' 154 'Rusia' 156 'Macedonia' 157 'Serbia'
+158 'Montenegro' 199 'Otros territorios de Europa' 201 'Burkina Faso' 202 'Angola'
+203 'Argelia' 204 'Benín' 205 'Botsuana' 206 'Burundi' 207 'Cabo Verde' 208 'Camerún'
+209 'Comoras' 210 'Rep. del Congo' 211 'Costa de Marfil' 212 'Yibuti' 213 'Egipto'
+214 'Etiopía' 215 'Gabón' 216 'Gambia' 217 'Ghana' 218 'Guinea' 219 'Guinea Bissau'
+220 'Guinea Ecuatorial' 221 'Kenia' 222 'Lesoto' 223 'Liberia' 224 'Libia'
+225 'Madagascar' 226 'Malaui' 227 'Mali' 228 'Marruecos' 229 'Mauricio' 230 'Mauritania'
+231 'Mozambique' 232 'Namibia' 233 'Níger' 234 'Nigeria' 235 'Rep. Centroafricana'
+236 'Sudáfrica' 237 'Ruanda' 238 'Santo Tomé y Príncipe' 239 'Senegal' 240 'Seychelles'
+241 'Sierra Leona' 242 'Somalia' 243 'Sudán' 244 'Suazilandia' 245 'Tanzania' 246 'Chad'
+247 'Togo' 248 'Túnez' 249 'Uganda' 250 'Rep. Democrática del Congo' 251 'Zambia'
+252 'Zimbabue' 253 'Eritrea' 299 'Otros territorios de África' 301 'Canadá'
+302 'Estados Unidos de América' 303 'México' 310 'Antigua y Barbuda' 311 'Bahamas'
+312 'Barbados' 313 'Belice' 314 'Costa Rica' 315 'Cuba' 316 'Dominica' 317 'El Salvador'
+318 'Granada' 319 'Guatemala' 320 'Haití' 321 'Honduras' 322 'Jamaica' 323 'Nicaragua'
+324 'Panamá' 325 'San Vicente y las Granadinas' 326 'República Dominicana'
+327 'Trinidad y Tobago' 328 'Santa Lucía' 329 'San Cristóbal y Nieves' 340 'Argentina'
+341 'Bolivia' 342 'Brasil' 343 'Colombia' 344 'Chile' 345 'Ecuador' 346 'Guyana'
+347 'Paraguay' 348 'Perú' 349 'Surinam' 350 'Uruguay' 351 'Venezuela'
+399 'Otros territorios de América' 401 'Afganistán' 402 'Arabia Saudita' 403 'Bahréin'
+404 'Bangladés' 405 'Myanmar' 407 'China' 408 'Emiratos Árabes Unidos' 409 'Filipinas'
+410 'India' 411 'Indonesia' 412 'Irak' 413 'Irán' 414 'Israel' 415 'Japón' 416 'Jordania'
+417 'Camboya' 418 'Kuwait' 419 'Laos' 420 'Líbano' 421 'Malasia' 422 'Maldivas'
+423 'Mongolia' 424 'Nepal' 425 'Omán' 426 'Pakistán' 427 'Qatar' 430 'Corea'
+431 'Corea del Norte (Rep. Popular Democrática)' 432 'Singapur' 433 'Siria'
+434 'Sri Lanka' 435 'Tailandia' 436 'Turquía' 437 'Vietnam' 439 'Brunéi'
+440 'Islas Marshall' 441 'Yemen' 442 'Azerbaiyán' 443 'Kazajistán' 444 'Kirguistán'
+445 'Tayikistán' 446 'Turkmenistán' 447 'Uzbekistán' 499 'Otros territorios de Asia'
+501 'Australia' 502 'Fiyi' 504 'Nueva Zelanda' 505 'Papúa Nueva Guinea'
+506 'Islas Salomón' 507 'Samoa' 508 'Tonga' 509 'Vanuatu' 511 'Micronesia' 512 'Tuvalu'
+513 'Islas Cook' 515 'Nauru' 516 'Palaos' 517 'Timor Oriental' 555 'Apátridas'
+599 'Otros territorios de Oceanía' 999 'N.C.' 0 'N.P.'
+/P1
+1 'Muy importante' 2 'Bastante importante' 3 '(NO LEER) Regular' 4 'Poco importante'
+5 'Nada importante' 8 'N.S.' 9 'N.C.'
+/P2
+1 'Muy importante' 2 'Bastante importante' 3 '(NO LEER) Regular' 4 'Poco importante'
+5 'Nada importante' 8 'N.S.' 9 'N.C.'
+/P3
+1 'Muy importante' 2 'Bastante importante' 3 '(NO LEER) Regular' 4 'Poco importante'
+5 'Nada importante' 8 'N.S.' 9 'N.C.'
+/P4_1
+1 'Muy de acuerdo' 2 'Bastante de acuerdo' 3 '(NO LEER) Regular' 4 'Poco de acuerdo'
+5 'Nada de acuerdo' 8 'N.S.' 9 'N.C.'
+/P4_2
+1 'Muy de acuerdo' 2 'Bastante de acuerdo' 3 '(NO LEER) Regular' 4 'Poco de acuerdo'
+5 'Nada de acuerdo' 8 'N.S.' 9 'N.C.'
+/P4_3
+1 'Muy de acuerdo' 2 'Bastante de acuerdo' 3 '(NO LEER) Regular' 4 'Poco de acuerdo'
+5 'Nada de acuerdo' 8 'N.S.' 9 'N.C.'
+/P4_4
+1 'Muy de acuerdo' 2 'Bastante de acuerdo' 3 '(NO LEER) Regular' 4 'Poco de acuerdo'
+5 'Nada de acuerdo' 8 'N.S.' 9 'N.C.'
+/P4_5
+1 'Muy de acuerdo' 2 'Bastante de acuerdo' 3 '(NO LEER) Regular' 4 'Poco de acuerdo'
+5 'Nada de acuerdo' 8 'N.S.' 9 'N.C.'
+/P4_6
+1 'Muy de acuerdo' 2 'Bastante de acuerdo' 3 '(NO LEER) Regular' 4 'Poco de acuerdo'
+5 'Nada de acuerdo' 8 'N.S.' 9 'N.C.'
+/P4_7
+1 'Muy de acuerdo' 2 'Bastante de acuerdo' 3 '(NO LEER) Regular' 4 'Poco de acuerdo'
+5 'Nada de acuerdo' 8 'N.S.' 9 'N.C.'
+/P5
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.'
+/P6
+1 'De pareja, con una sola persona'
+2 'Relación abierta, con relaciones sexuales fuera de la pareja'
+3 'Poliamor, más de dos personas en una relación' 96 'Otra' 98 'N.S.' 99 'N.C.' 0 'N.P.'
+/P7
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P8
+1 'No descarta convivir con su pareja en el futuro'
+2 'Tiene decidido que no vivirán juntos o juntas'
+3 'Es una relación a distancia, pero no descartan vivir juntos o juntas en el futuro'
+4 'Es una relación a distancia y tienen decidido que no vivirán juntos o juntas'
+96 '(NO LEER) Otro' 98 'N.S.' 99 'N.C.' 0 'N.P.'
+/P9
+1 'Tiene relaciones casuales, citas sin exclusividad' 2 'No tiene relaciones ni citas'
+96 'Otra' 98 'N.S.' 99 'N.C.' 0 'N.P.'
+/P10
+1 'Estar casado/a' 2 'Tener una relación estable, convivir sin estar casado/a'
+3 'Tener una relación estable, pero cada cual viviendo en su casa'
+4 'Tener relaciones sin compromiso' 5 'Vivir sin pareja ni relaciones' 96 '(NO LEER) Otra'
+98 'N.S./No tiene preferencia' 99 'N.C.' 0 'N.P.'
+/P10A
+1 'De pareja, con una sola persona'
+2 'Relación abierta, con relaciones sexuales fuera de la pareja'
+3 'Poliamor, más de dos personas en una relación' 6 '(NO LEER) Otra' 8 'N.S.' 9 'N.C.'
+0 'N.P.'
+/P11
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.'
+/P12
+1 'Por razones religiosas, por sus ideas, por convicción'
+2 'Porque no ha tenido ocasión o posibilidad'
+3 'Porque no ha encontrado una persona que les gustase' 4 'Por miedo'
+5 'Por estrés o cansancio'
+6 'Por malas experiencias en sus relaciones sexuales anteriores'
+7 'Por falta de interés o deseo sexual' 8 'Por falta de confianza no sentirse deseado/a'
+9 'Por enfermedad, propia o de la pareja' 10 'Por viudedad' 11 'Por edad'
+12 'Por dificultades o distanciamiento con mi pareja'
+13 'Porque no quiere, no lo necesita, no le gusta, prefiere estar solo/a'
+14 'Por divorcio, separación' 15 'Por trabajo, no tener tiempo, cuidar de otros/as'
+16 'Por no tener pareja' 96 'Otros' 98 'N.S.' 99 'N.C.' 0 'N.P.'
+/P13
+1 'Heterosexual' 2 'Homosexual (gay o lesbiana)' 3 'Bisexual' 4 'Asexual' 96 'Otro'
+97 '(NO LEER) Ninguno' 98 'N.S.' 99 'N.C.'
+/P14
+1 'Hombre' 2 'Mujer' 3 'Persona no binaria' 96 'Otra respuesta' 98 'N.S.' 99 'N.C.'
+/P15_A_1
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.'
+/P15_A_2
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.'
+/P15_A_3
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.'
+/P15_A_4
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.'
+/P15_A_5
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.'
+/P15_A_6
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.'
+/P15_B_1
+1 'Una experiencia puntual' 2 'Una etapa de su vida' 3 'Varias etapas de su vida'
+4 'Parte habitual de su vida sexual' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P15_B_2
+1 'Una experiencia puntual' 2 'Una etapa de su vida' 3 'Varias etapas de su vida'
+4 'Parte habitual de su vida sexual' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P15_B_3
+1 'Una experiencia puntual' 2 'Una etapa de su vida' 3 'Varias etapas de su vida'
+4 'Parte habitual de su vida sexual' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P15_B_4
+1 'Una experiencia puntual' 2 'Una etapa de su vida' 3 'Varias etapas de su vida'
+4 'Parte habitual de su vida sexual' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P15_B_5
+1 'Una experiencia puntual' 2 'Una etapa de su vida' 3 'Varias etapas de su vida'
+4 'Parte habitual de su vida sexual' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P15_B_6
+1 'Una experiencia puntual' 2 'Una etapa de su vida' 3 'Varias etapas de su vida'
+4 'Parte habitual de su vida sexual' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P16
+1 'Muy abierto/a' 2 'Bastante abierto/a' 3 'Ni abierto/a ni conservador/a'
+4 'Más bien conservador/a' 5 'Muy conservador/a' 8 'N.S.' 9 'N.C.'
+/P17
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.'
+/P18_A_1
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P18_A_2
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P18_A_3
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P18_A_4
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P18_B_1
+1 'En solitario' 2 'Con una pareja estable' 3 'Con una pareja ocasional'
+4 'Tanto en solitario como en pareja' 5 'En grupo' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P18_B_2
+1 'En solitario' 2 'Con una pareja estable' 3 'Con una pareja ocasional'
+4 'Tanto en solitario como en pareja' 5 'En grupo' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P18_B_3
+1 'En solitario' 2 'Con una pareja estable' 3 'Con una pareja ocasional'
+4 'Tanto en solitario como en pareja' 5 'En grupo' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P18_B_4
+1 'En solitario' 2 'Con una pareja estable' 3 'Con una pareja ocasional'
+4 'Tanto en solitario como en pareja' 5 'En grupo' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P19
+1 'Curiosidad o experimentación' 2 'Mejorar la satisfacción sexual' 3 'Diversión'
+4 'Introducir novedad en la relación' 5 'Recomendación de la pareja'
+6 'Influencia de redes sociales o medios' 10 'Recomendación médica o salud'
+7 'Otro motivo' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P20
+1 'Mucho' 2 'Bastante' 3 'Poco' 4 'Nada' 5 '(NO LEER) Depende' 8 'N.S.' 9 'N.C.'
+/P21_1
+1 'Muy de acuerdo' 2 'Bastante de acuerdo' 3 '(NO LEER) Regular' 4 'Poco de acuerdo'
+5 'Nada de acuerdo' 8 'N.S.' 9 'N.C.'
+/P21_2
+1 'Muy de acuerdo' 2 'Bastante de acuerdo' 3 '(NO LEER) Regular' 4 'Poco de acuerdo'
+5 'Nada de acuerdo' 8 'N.S.' 9 'N.C.'
+/P21_3
+1 'Muy de acuerdo' 2 'Bastante de acuerdo' 3 '(NO LEER) Regular' 4 'Poco de acuerdo'
+5 'Nada de acuerdo' 8 'N.S.' 9 'N.C.'
+/P22_A_1
+1 'Conoce' 2 'No conoce' 8 'N.S.' 9 'N.C.'
+/P22_A_2
+1 'Conoce' 2 'No conoce' 8 'N.S.' 9 'N.C.'
+/P22_A_3
+1 'Conoce' 2 'No conoce' 8 'N.S.' 9 'N.C.'
+/P22_A_4
+1 'Conoce' 2 'No conoce' 8 'N.S.' 9 'N.C.'
+/P22_A_5
+1 'Conoce' 2 'No conoce' 8 'N.S.' 9 'N.C.'
+/P22_A_6
+1 'Conoce' 2 'No conoce' 8 'N.S.' 9 'N.C.'
+/P22_A_7
+1 'Conoce' 2 'No conoce' 8 'N.S.' 9 'N.C.'
+/P22_B_1
+1 'Más bien de acuerdo' 2 'Más bien en desacuerdo' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P22_B_2
+1 'Más bien de acuerdo' 2 'Más bien en desacuerdo' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P22_B_3
+1 'Más bien de acuerdo' 2 'Más bien en desacuerdo' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P22_B_4
+1 'Más bien de acuerdo' 2 'Más bien en desacuerdo' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P22_B_5
+1 'Más bien de acuerdo' 2 'Más bien en desacuerdo' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P22_B_6
+1 'Más bien de acuerdo' 2 'Más bien en desacuerdo' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P22_B_7
+1 'Más bien de acuerdo' 2 'Más bien en desacuerdo' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/ESCIDEOL
+1 '1 Izquierda' 10 '10 Derecha' 98 'N.S.' 99 'N.C.'
+/PROBVOTO
+0 '0 Con toda seguridad no iría a votar' 10 '10 Con toda seguridad, iría a votar'
+98 'N.S.' 99 'N.C.' 97 'N.P.'
+/INTENCIONGR
+1 'PSOE' 2 'PP' 3 'VOX' 4 'Unidas Podemos' 5 'Ciudadanos' 6 'PACMA' 7 'Más País'
+8 'Podemos' 9 'IU' 10 'Los Verdes' 11 'EQUO' 12 'Falange Española de las JONS'
+13 'Escaños en Blanco' 14 'España 2000' 15 'Partido Libertario' 16 'Recortes Cero'
+17 'Partido Feminista de España' 18 'UPyD' 19 'PCPE' 20 'IGRE' 21 'Sumar' 22 'ACTUA'
+23 'Democracia Nacional' 24 'Partido Humanista' 25 'Por un Mundo más Justo (M+J)'
+26 'Caminando Juntos' 27 'Frente Obrero' 28 'Se Acabó la Fiesta' 101 'Adelante Andalucía'
+102 'Jaén Merece Más' 103 'Por Andalucía' 104 'Levanta Jaén' 105 'Juntos por Granada'
+106 'Por Huelva' 107 'Andalucía Por Sí' 201 'PAR' 202 'Teruel Existe' 203 'CHA'
+204 'Zaragoza en Común' 301 'FAC' 401 'MÉS (PSM-Entesa)' 402 'PI (Proposta per les Illes)'
+403 'MXME (Més per Menorca)' 501 'CC-PNC' 502 'Nueva Canarias' 503 'CCa'
+504 'PNC (Partido Nacionalista Canario)' 505 'ASG' 506 'Drago Canarias Verdes' 601 'PRC'
+801 'UPL' 802 'Soria Ya' 803 'Por Ávila' 804 'Vía Burgalesa' 805 'Puede Palencia'
+806 'Centrados (Segovia)' 807 'Zamora Decide' 808 'España Vaciada' 809 'PREPAL'
+810 'Por Zamora' 811 'Unión Regionalista'
+812 'Partido Castellano-Tierra Comunera-Recortes Cero' 813 'Coalición por el Bierzo'
+901 'ERC' 902 'Junts' 903 'En Comú Podem' 904 'CUP' 905 'PdeCat' 906 'Directe 68'
+907 'CDC' 908 'Barcelona pel Canvi' 909 'Crida Nacional per la República'
+910 'Poble Lliure (Front República)' 911 'PNC' 912 'Comuns Sumar' 913 'Cat-Junts+'
+914 'CUP-DT' 915 'Aliança Catalana' 916 'Alhora' 1001 'Compromís' 1002 'Bloc'
+1003 'Soms Valencians' 1004 'Compromís-Podemos-EUPV' 1101 'Extremadura Unida' 1103 'JUEX'
+1201 'BNG' 1202 'En Común-Unidas Podemos' 1203 'En Marea'
+1204 'PAYJ (Partido Anticorrupción y Justicia)' 1205 'Compromiso por Galicia'
+1206 'Compostela Aberta' 1207 'Converxencia Galega' 1208 'Terra Galega'
+1209 'Anova-Irmandade Nacionalista' 1210 'Marea de Vigo'
+1211 'Marea Galeguista (En Marea-CompromisoXGalicia-Partido Galeguista)'
+1212 'Democracia Ourensana' 1301 'Más Madrid' 1501 'UPN' 1502 'Geroa Bai' 1601 'EAJ-PNV'
+1602 'EH Bildu' 1603 'Elkarrekin Podemos-IU' 1604 'Elkarrekin Podemos'
+1605 'Sumar Euskadi' 1650 'PP+Ciudadanos' 1701 'Partido Riojano' 1801 'Coalición Caballas'
+1802 'MDyC' 1901 'Coalición por Melilla' 5001 'Unidas Podemos Cambiar Europa'
+5002 'Ahora Repúblicas' 5003 'Junts i Lliures per Europa' 5004 'Por una Europa Solidaria'
+5005 'Compromiso por Europa' 5006 'Se Acabó la Fiesta' 5007 'La España Olvidada Existe'
+8995 'Otro partido' 8996 'En blanco' 9977 'Voto nulo' 9997 'No votaría'
+9998 'No sabe todavía' 9999 'N.C.' 0 'N.P.'
+/SIMPATIA
+1 'PSOE' 2 'PP' 3 'VOX' 4 'Unidas Podemos' 5 'Ciudadanos' 6 'PACMA' 7 'Más País'
+8 'Podemos' 9 'IU' 10 'Los Verdes' 11 'EQUO' 12 'Falange Española de las JONS'
+13 'Escaños en Blanco' 14 'España 2000' 15 'Partido Libertario' 16 'Recortes Cero'
+17 'Partido Feminista de España' 18 'UPyD' 19 'PCPE' 20 'IGRE' 21 'Sumar' 22 'ACTUA'
+23 'Democracia Nacional' 24 'Partido Humanista' 25 'Por un Mundo más Justo (M+J)'
+26 'Caminando Juntos' 27 'Frente Obrero' 28 'Se Acabó la Fiesta' 101 'Adelante Andalucía'
+102 'Jaén Merece Más' 103 'Por Andalucía' 104 'Levanta Jaén' 105 'Juntos por Granada'
+106 'Por Huelva' 107 'Andalucía Por Sí' 201 'PAR' 202 'Teruel Existe' 203 'CHA'
+204 'Zaragoza en Común' 205 'IU-MOVIMIENTO SUMAR' 206 'PODEMOS-AV' 207 'EXISTE' 301 'FAC'
+401 'MÉS (PSM-Entesa)' 402 'PI (Proposta per les Illes)' 403 'MXME (Més per Menorca)'
+501 'CC-PNC' 502 'Nueva Canarias' 503 'CCa' 504 'PNC (Partido Nacionalista Canario)'
+505 'ASG' 506 'Drago Canarias Verdes' 601 'PRC' 801 'UPL' 802 'Soria Ya' 803 'Por Ávila'
+804 'Vía Burgalesa' 805 'Puede Palencia' 806 'Centrados (Segovia)' 807 'Zamora Decide'
+808 'España Vaciada' 809 'PREPAL' 810 'Por Zamora' 811 'Unión Regionalista'
+812 'Partido Castellano-Tierra Comunera-Recortes Cero' 813 'Coalición por el Bierzo'
+814 'Valladolid Toma la Palabra' 815 'En Común (IU-Movimiento Sumar-Verdes Equo)'
+816 'Podemos-Alianza Verde' 817 'Ahora Decide-España Vaciada'
+818 'Unidas Podemos Castilla y León (Podemos-IU-AV)' 901 'ERC' 902 'Junts'
+903 'En Comú Podem' 904 'CUP' 905 'PdeCat' 906 'Directe 68' 907 'CDC'
+908 'Barcelona pel Canvi' 909 'Crida Nacional per la República'
+910 'Poble Lliure (Front República)' 911 'PNC' 912 'Comuns Sumar' 913 'Cat-Junts+'
+914 'CUP-DT' 915 'Aliança Catalana' 916 'Alhora' 1001 'Compromís' 1002 'Bloc'
+1003 'Soms Valencians' 1004 'Compromís-Podemos-EUPV' 1101 'Extremadura Unida'
+1102 'JUNTOS-LEVANTA' 1103 'JUEX' 1201 'BNG' 1202 'En Común-Unidas Podemos'
+1203 'En Marea' 1204 'PAYJ (Partido Anticorrupción y Justicia)'
+1205 'Compromiso por Galicia' 1206 'Compostela Aberta' 1207 'Converxencia Galega'
+1208 'Terra Galega' 1209 'Anova-Irmandade Nacionalista' 1210 'Marea de Vigo'
+1211 'Marea Galeguista (En Marea-CompromisoXGalicia-Partido Galeguista)'
+1212 'Democracia Ourensana' 1213 'Espazo Común Galeguista' 1301 'Más Madrid' 1501 'UPN'
+1502 'Geroa Bai' 1601 'EAJ-PNV' 1602 'EH Bildu' 1603 'Elkarrekin Podemos-IU'
+1604 'Elkarrekin Podemos' 1605 'Sumar Euskadi' 1650 'PP+Ciudadanos' 1701 'Partido Riojano'
+1801 'Coalición Caballas' 1802 'MDyC' 1901 'Coalición por Melilla'
+5001 'Unidas Podemos Cambiar Europa' 5002 'Ahora Repúblicas'
+5003 'Junts i Lliures per Europa' 5004 'Por una Europa Solidaria'
+5005 'Compromiso por Europa' 5006 'Se Acabó la Fiesta' 5007 'La España Olvidada Existe'
+8995 'Otro partido' 8996 'En blanco' 9977 'Voto nulo' 9997 'Ninguno' 9998 'N.S.'
+9999 'N.C.' 0 'N.P.'
+/VOTOSIMGR
+1 'PSOE' 2 'PP' 3 'VOX' 21 'Sumar' 8 'Podemos' 901 'ERC' 902 'Junts' 1602 'EH Bildu'
+1601 'EAJ-PNV' 1201 'BNG' 503 'CCa' 1501 'UPN' 28 'Se Acabó la Fiesta' 6 'PACMA'
+8995 'Otro partido' 0 'N.P.'
+/PREFPTE
+1 'Pedro Sánchez' 2 'Alberto Núñez Feijóo' 3 'Santiago Abascal' 4 'Yolanda Díaz'
+5 'Alberto Garzón' 6 'Inés Arrimadas' 7 'Íñigo Errejón' 8 'Isabel Díaz Ayuso'
+9 'Irene Montero' 10 'Ione Belarra' 11 'Pablo Iglesias' 12 'Alvise Pérez'
+13 'Gabriel Rufián' 14 'Juan Manuel Moreno Bonilla' 15 'Emiliano García-Page' 96 'Otro/a'
+97 'Ninguno/a de ellos/as' 98 'N.S.' 99 'N.C.' 0 'N.P.'
+/P28
+1 'Muy de acuerdo' 2 'Bastante de acuerdo' 3 '(NO LEER) Regular' 4 'Poco de acuerdo'
+5 'Nada de acuerdo' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/PARTICIPACIONG
+1 'Votó' 2 'No votó' 3 'No tenía edad para votar' 4 'No tenía derecho a voto' 8 'N.R.'
+9 'N.C.' 0 'N.P.'
+/RECUVOTOG
+1 'PSOE' 2 'PP' 3 'VOX' 6 'PACMA' 21 'Sumar' 503 'CCa' 901 'ERC' 902 'Junts' 1201 'BNG'
+1501 'UPN' 1601 'EAJ-PNV' 1602 'EH Bildu' 8995 'Otros partidos' 8996 'En blanco'
+9977 'Voto nulo' 9998 'N.R.' 9999 'N.C.' 0 'N.P.'
+/CERCANIA
+1 'PSOE' 2 'PP' 3 'VOX' 4 'Unidas Podemos' 5 'Ciudadanos' 6 'PACMA' 7 'Más País'
+8 'Podemos' 9 'IU' 10 'Los Verdes' 11 'EQUO' 12 'Falange Española de las JONS'
+13 'Escaños en Blanco' 14 'España 2000' 15 'Partido Libertario' 16 'Recortes Cero'
+17 'Partido Feminista de España' 18 'UPyD' 19 'PCPE' 20 'IGRE' 21 'Sumar' 22 'ACTUA'
+23 'Democracia Nacional' 24 'Partido Humanista' 25 'Por un Mundo más Justo (M+J)'
+26 'Caminando Juntos' 27 'Frente Obrero' 28 'Se Acabó la Fiesta' 101 'Adelante Andalucía'
+102 'Jaén Merece Más' 103 'Por Andalucía' 104 'Levanta Jaén' 105 'Juntos por Granada'
+106 'Por Huelva' 107 'Andalucía Por Sí' 201 'PAR' 202 'Teruel Existe' 203 'CHA'
+204 'Zaragoza en Común' 205 'IU-MOVIMIENTO SUMAR' 206 'PODEMOS-AV' 207 'EXISTE' 301 'FAC'
+401 'MÉS (PSM-Entesa)' 402 'PI (Proposta per les Illes)' 403 'MXME (Més per Menorca)'
+501 'CC-PNC' 502 'Nueva Canarias' 503 'CCa' 504 'PNC (Partido Nacionalista Canario)'
+505 'ASG' 506 'Drago Canarias Verdes' 601 'PRC' 801 'UPL' 802 'Soria Ya' 803 'Por Ávila'
+804 'Vía Burgalesa' 805 'Puede Palencia' 806 'Centrados (Segovia)' 807 'Zamora Decide'
+808 'España Vaciada' 809 'PREPAL' 810 'Por Zamora' 811 'Unión Regionalista'
+812 'Partido Castellano-Tierra Comunera-Recortes Cero' 813 'Coalición por el Bierzo'
+814 'Valladolid Toma la Palabra' 815 'En Común (IU-Movimiento Sumar-Verdes Equo)'
+816 'Podemos-Alianza Verde' 817 'Ahora Decide-España Vaciada'
+818 'Unidas Podemos Castilla y León (Podemos-IU-AV)' 901 'ERC' 902 'Junts'
+903 'En Comú Podem' 904 'CUP' 905 'PdeCat' 906 'Directe 68' 907 'CDC'
+908 'Barcelona pel Canvi' 909 'Crida Nacional per la República'
+910 'Poble Lliure (Front República)' 911 'PNC' 912 'Comuns Sumar' 913 'Cat-Junts+'
+914 'CUP-DT' 915 'Aliança Catalana' 916 'Alhora' 1001 'Compromís' 1002 'Bloc'
+1003 'Soms Valencians' 1004 'Compromís-Podemos-EUPV' 1101 'Extremadura Unida'
+1102 'JUNTOS-LEVANTA' 1103 'JUEX' 1201 'BNG' 1202 'En Común-Unidas Podemos'
+1203 'En Marea' 1204 'PAYJ (Partido Anticorrupción y Justicia)'
+1205 'Compromiso por Galicia' 1206 'Compostela Aberta' 1207 'Converxencia Galega'
+1208 'Terra Galega' 1209 'Anova-Irmandade Nacionalista' 1210 'Marea de Vigo'
+1211 'Marea Galeguista (En Marea-CompromisoXGalicia-Partido Galeguista)'
+1212 'Democracia Ourensana' 1213 'Espazo Común Galeguista' 1301 'Más Madrid' 1501 'UPN'
+1502 'Geroa Bai' 1601 'EAJ-PNV' 1602 'EH Bildu' 1603 'Elkarrekin Podemos-IU'
+1604 'Elkarrekin Podemos' 1605 'Sumar Euskadi' 1650 'PP+Ciudadanos' 1701 'Partido Riojano'
+1801 'Coalición Caballas' 1802 'MDyC' 1901 'Coalición por Melilla'
+5001 'Unidas Podemos Cambiar Europa' 5002 'Ahora Repúblicas'
+5003 'Junts i Lliures per Europa' 5004 'Por una Europa Solidaria'
+5005 'Compromiso por Europa' 5006 'Se Acabó la Fiesta' 5007 'La España Olvidada Existe'
+8995 'Otro partido' 8996 'En blanco' 9977 'Voto nulo' 9997 'Ninguno' 9998 'N.S.'
+9999 'N.C.'
+/CERCANIAR2
+1 'PSOE' 2 'PP' 3 'VOX' 4 'Unidas Podemos' 5 'Ciudadanos' 6 'PACMA' 7 'Más País'
+8 'Podemos' 9 'IU' 10 'Los Verdes' 11 'EQUO' 12 'Falange Española de las JONS'
+13 'Escaños en Blanco' 14 'España 2000' 15 'Partido Libertario' 16 'Recortes Cero'
+17 'Partido Feminista de España' 18 'UPyD' 19 'PCPE' 20 'IGRE' 21 'Sumar' 22 'ACTUA'
+23 'Democracia Nacional' 24 'Partido Humanista' 25 'Por un Mundo más Justo (M+J)'
+26 'Caminando Juntos' 27 'Frente Obrero' 28 'Se Acabó la Fiesta' 101 'Adelante Andalucía'
+102 'Jaén Merece Más' 103 'Por Andalucía' 104 'Levanta Jaén' 105 'Juntos por Granada'
+106 'Por Huelva' 107 'Andalucía Por Sí' 201 'PAR' 202 'Teruel Existe' 203 'CHA'
+204 'Zaragoza en Común' 301 'FAC' 401 'MÉS (PSM-Entesa)' 402 'PI (Proposta per les Illes)'
+403 'MXME (Més per Menorca)' 501 'CC-PNC' 502 'Nueva Canarias' 503 'CCa'
+504 'PNC (Partido Nacionalista Canario)' 505 'ASG' 506 'Drago Canarias Verdes' 601 'PRC'
+801 'UPL' 802 'Soria Ya' 803 'Por Ávila' 804 'Vía Burgalesa' 805 'Puede Palencia'
+806 'Centrados (Segovia)' 807 'Zamora Decide' 808 'España Vaciada' 809 'PREPAL'
+810 'Por Zamora' 811 'Unión Regionalista'
+812 'Partido Castellano-Tierra Comunera-Recortes Cero' 813 'Coalición por el Bierzo'
+901 'ERC' 902 'Junts' 903 'En Comú Podem' 904 'CUP' 905 'PdeCat' 906 'Directe 68'
+907 'CDC' 908 'Barcelona pel Canvi' 909 'Crida Nacional per la República'
+910 'Poble Lliure (Front República)' 911 'PNC' 912 'Comuns Sumar' 913 'Cat-Junts+'
+914 'CUP-DT' 915 'Aliança Catalana' 916 'Alhora' 1001 'Compromís' 1002 'Bloc'
+1003 'Soms Valencians' 1004 'Compromís-Podemos-EUPV' 1101 'Extremadura Unida'
+1102 'JUNTOS-LEVANTA' 1103 'JUEX' 1201 'BNG' 1202 'En Común-Unidas Podemos'
+1203 'En Marea' 1204 'PAYJ (Partido Anticorrupción y Justicia)'
+1205 'Compromiso por Galicia' 1206 'Compostela Aberta' 1207 'Converxencia Galega'
+1208 'Terra Galega' 1209 'Anova-Irmandade Nacionalista' 1210 'Marea de Vigo'
+1211 'Marea Galeguista (En Marea-CompromisoXGalicia-Partido Galeguista)'
+1212 'Democracia Ourensana' 1301 'Más Madrid' 1501 'UPN' 1502 'Geroa Bai' 1601 'EAJ-PNV'
+1602 'EH Bildu' 1603 'Elkarrekin Podemos-IU' 1604 'Elkarrekin Podemos'
+1605 'Sumar Euskadi' 1650 'PP+Ciudadanos' 1701 'Partido Riojano' 1801 'Coalición Caballas'
+1802 'MDyC' 1901 'Coalición por Melilla' 5001 'Unidas Podemos Cambiar Europa'
+5002 'Ahora Repúblicas' 5003 'Junts i Lliures per Europa' 5004 'Por una Europa Solidaria'
+5005 'Compromiso por Europa' 5006 'Se Acabó la Fiesta' 5007 'La España Olvidada Existe'
+8995 'Otro partido' 8996 'En blanco' 9977 'Voto nulo' 0 'N.P.'
+/ESCUELA
+1 'No, es analfabeto/a' 2 'No, pero sabe leer y escribir' 3 'Sí, ha ido a la escuela'
+9 'N.C.'
+/NIVELESTENTREV
+1 'Menos de 5 años de escolarización o primaria incompleta '
+2 'Educación Primaria (Educación Primaria de LOGSE, 5º curso de EGB, enseñanza primaria antigua) '
+3 'FP Básica (FPB). Cualificación profesional grado inicial (FP grado inicial). PCPI (Programas de Cualificación Profesiona'+'l Inicial, que no precisan de titulación académica de la primera etapa de secundaria para su realización). Programas de '+'Garantía Social '
+4 'Educación secundaria (ESO, EGB. Graduado Escolar. Certificado de Escolaridad, Bachillerato Elemental) '
+5 'FP de Grado Medio (ciclo/módulo formativo de FP (grado medio), de Artes Plásticas y Diseño, Música y Danza, enseñanzas d'+'eportivas, FP I, Bachiller Laboral Elemental. Oficialía Industrial; Bachillerato Comercial) '
+6 'Bachillerato (Bachillerato LOGSE, BUP, Bachillerato Superior (6º), Bachillerato Universitario (7º), incluidos COU y PREU'+') '
+7 'FP de Grado Superior (ciclo/módulo formativo de FP (grado superior) de Artes Plásticas, Diseño, Música y Danza, Deporte,'+' FP II, Bachillerato Laboral Superior, Maestría industrial, perito/a mercantil; Secretariado de 2º grado; Grado Medio co'+'nservatorio) '
+8 'Arquitectura/Ingeniería Técnica (aparejador/a; peritos/as) '
+9 'Diplomatura (ATENCIÓN: sólo diplomaturas oficiales, no codificar aquí los tres primeros años de una licenciatura o grado'+' con mayor duración) '
+10 'Grado (estudios de grado, enseñanzas artísticas equivalentes (desde 2006)) '
+11 'Licenciatura (titulaciones con equivalencia oficial: 2º ciclo INEF; Danza y Arte Dramático (desde 1992); Grado Superior '+'de Música) '
+12 'Arquitectura/Ingeniería'
+13 'Máster oficial universitario (especialidades médicas o equivalente) ' 14 'Doctorado'
+15 'Títulos propios de posgrado (máster no oficial, etc.) ' 16 'Otros estudios '
+98 'N.S./N.R. ' 99 'N.C.' 0 'N.P.'
+/RELIGION
+1 'Católico/a practicante' 2 'Católico/a no practicante' 3 'Creyente de otra religión'
+4 'Agnóstico/a (no niegan la existencia de Dios pero tampoco la descartan) '
+5 'Indiferente, no creyente' 6 'Ateo/a (niegan la existencia de Dios) ' 9 'N.C.'
+/PRACTICARELIG6
+1 'Nunca' 2 'Casi nunca' 3 'Varias veces al año' 4 'Dos o tres veces al mes'
+5 'Todos los domingos y festivos' 6 'Varias veces a la semana' 9 'N.C.' 0 'N.P.'
+/ECIVIL
+1 'Casado/a' 2 'Soltero/a' 3 'Viudo/a' 4 'Separado/a' 5 'Divorciado/a' 9 'N.C.'
+/SITLAB
+1 'Trabaja' 2 'Jubilado/a o pensionista (anteriormente ha trabajado) '
+3 'Pensionista (anteriormente no ha trabajado) ' 4 'En paro y ha trabajado antes '
+5 'En paro y busca su primer empleo ' 6 'Estudiante ' 7 'Trabajo doméstico no remunerado '
+8 'Otra situación' 9 'N.C.'
+/RELALAB
+1 'Asalariado/a por cuenta ajena' 2 'Empresario/a o profesional con asalariados/as'
+3 'Profesional o trabajador/a autónomo/a (sin asalariados/as)'
+4 'Ayuda familiar (sin remuneración reglamentada en la empresa o negocio de un/a familiar)'
+5 'Miembro de una cooperativa' 6 'Otra situación' 9 'N.C.' 0 'N.P.'
+/CNO11
+1 'Directores/as y gerentes' 2 'Profesionales, científicos/as e intelectuales'
+3 'Técnicos/as y profesionales de nivel medio' 4 'Personal de apoyo administrativo'
+5 'Trabajadores/as de los servicios y vendedores/as de comercios y mercados'
+6 'Agricultores/as y trabajadores/as cualificados/as agropecuarios, forestales y pesqueros/as'
+7 'Oficiales/as, operarios/as, artesanos/as y trabajadores/as de artes mecánicas y de otros oficios'
+8 'Operadores/as de instalaciones y máquinas y ensambladores/as'
+9 'Ocupaciones elementales' 10 'Ocupaciones militares y cuerpos policiales' 11 'Otra/o'
+99 'N.C.' 0 'N.P.'
+/INGRESHOG
+1 'Más de 5.000 €' 2 'De 3.901 a 5.000 €' 3 'De 2.701 a 3.900 €' 4 'De 1.801 a 2.700 €'
+5 'De 1.100 a 1.800 €' 6 'Menos de 1.100 €' 8 'N.S.' 9 'N.C.'
+/CLASESOCIAL
+1 'Clase alta ' 2 'Clase media-alta ' 3 'Clase media-media ' 4 'Clase media-baja '
+5 'Clase trabajadora/obrera ' 12 'Clase baja ' 6 'Clase pobre ' 7 'Infraclase'
+8 'Proletariado' 9 'A los/as de abajo ' 10 'Excluidos/as' 11 'A la gente común '
+96 'Otras' 97 'No cree en las clases ' 98 'No sabe, duda ' 99 'N.C.'
+/SINCERIDAD
+1 'Mucha' 2 'Bastante' 3 'Poca' 4 'Ninguna' 8 'N.S.'
+/V2_1
+1 'Sí' 2 'No' 8 'N.S.'
+/V2_2
+1 'Sí' 2 'No' 8 'N.S.'
+/V2_3
+1 'Sí' 2 'No' 8 'N.S.'
+/V3
+1 'Sí' 2 'No' 8 'N.S.'
+/IA_I501
+0 'No procede'
+/IA_I502
+0 'No procede'
+/IA_I503
+0 'No procede'
+/IA_I504
+0 'No procede'
+/IA_I505
+0 'No procede'
+/IA_I506
+0 'No procede'
+/IA_I507
+0 'No procede'
+/IA_I508
+0 'No procede'
+/IA_I509
+0 'No procede'
+/IA_I510
+0 'No procede'
+/IA_I511
+0 'No' 1 'Sí'
+/IA_I512
+0 'No' 1 'Sí'
+/IA_I513
+0 'No' 1 'Sí'
+/IA_I514
+0 'No' 1 'Sí'
+/IA_I515
+0 'No' 1 'Sí'
+/IA_I516
+0 'No' 1 'Sí'
+/IA_I517
+0 'No' 1 'Sí'
+/IA_I518
+0 'No' 1 'Sí'
+/IA_I519
+0 'No' 1 'Sí'
+/IA_I520
+0 'No' 1 'Sí'
+/IA_I521
+0 'No' 1 'Sí'
+/IA_I522
+0 'No procede'
+/IA_I523
+0 'No procede'
+/IA_I524
+0 'No procede'
+/IA_I525
+0 'No procede'
+/IA_I526
+0 'No procede'
+/IA_I528
+0 'No procede'
+/IA_I529
+0 'No procede'
+/IA_I530
+0 'No procede'
+/IA_I531
+0 'No procede'
+/IA_I532
+0 'No' 1 'Sí'
+/IA_I533
+0 'No' 1 'Sí'
+/IA_I534
+0 'No'
+/IA_I535
+0 'No'
+/IA_I536
+0 'No'
+/IA_I537
+0 'No'
+/IA_I538
+0 'No'
+/IA_I539
+0 'No'
+/IA_I540
+0 'No'
+/IA_I541
+0 'No'
+/IA_I542
+0 'No'
+/IA_I543
+0 'No'
+/IA_OBS1
+0 'No' 1 'Sí'
+/IA_OBS2
+0 'No' 1 'Sí'
+/IA_E1_DIA
+99 'N.C.'
+/IA_E1_MES
+1 'Enero  ' 2 'Febrero  ' 3 'Marzo  ' 4 'Abril  ' 5 'Mayo  ' 6 'Junio  ' 7 'Julio  '
+8 'Agosto  ' 9 'Septiembre  ' 10 'Octubre  ' 11 'Noviembre    ' 12 'Diciembre  ' 99 'N.C.'
+/IA_E1_ANYO
+26 '2026'
+/IA_E2
+1 'Lunes' 2 'Martes' 3 'Miércoles' 4 'Jueves' 5 'Viernes' 6 'Sábado' 7 'Domingo' 9 'N.C.'
+/IA_E4
+1 'Mañana (9-12)' 2 'Mediodía (12-16)' 3 'Tarde (16-20)' 4 'Noche (20-22)' 5 'Otra (22-9)'
+/IA_VALIDA
+0 'No' 1 'Sí'
+/IA_APLAZADA
+0 'No' 1 'Sí'
+/IA_MODIFICADA
+0 'No' 1 'Sí'
+/IA_SUPERVISADA
+0 'No' 1 'Sí'
+/IA_C2
+1 'Entrevista no supervisada' 2 'Supervisión telefónica' 3 'Supervisión personal'
+4 'Supervisión telefónica y personal' 5 'Supervisión directa'
+6 'Supervisión de audio (monitorización)'
+/IA_C2A
+1 'Entrevista correcta' 2 'Entrevista incorrecta' 3 'No se ha establecido contacto'
+/IA_C2B_26
+1 'No hay grabación' 0 'No'
+/IA_C2B_27
+1 'No realizada a la persona de la que se recogen los datos' 0 'No'
+/IA_C2B_28
+1 'No verifica o graba correctamente el sexo' 0 'No'
+/IA_C2B_29
+1 'No verifica o graba correctamente la edad' 0 'No'
+/IA_C2B_30
+1 'No verifica correctamente los valores de cuota distintos a sexo y edad' 0 'No'
+/IA_C2B_31
+1 'No respeta las normas de selección' 0 'No'
+/IA_C2B_32
+1 'No se realiza en un teléfono personal /domicilio' 0 'No'
+/IA_C2B_33
+1 'No lee el protocolo de inicio o fin de la encuesta' 0 'No'
+/IA_C2B_34
+1 'No lee literalmente el protocolo de protección de datos' 0 'No'
+/IA_C2B_35
+1 'No formula todas las preguntas' 0 'No'
+/IA_C2B_36
+1 'Entrevista interrumpida y autocompletada' 0 'No'
+/IA_C2B_37
+1 'No aplica el cuestionario en el idioma en que fue diseñado' 0 'No'
+/IA_C2B_38
+1 'No lee literalmente las preguntas y/o las opciones de respuesta' 0 'No'
+/IA_C2B_39
+1 'No aplica el cuestionario sin inducir la respuesta' 0 'No'
+/IA_C2B_40
+1 'No aplica la instrucción NO LEER en las opciones de respuesta donde se indica' 0 'No'
+/IA_C2B_41
+1 'No codifica correctamente las respuestas' 0 'No'
+/IA_C2B_42
+1 'No aplica correctamente las preguntas abiertas' 0 'No'
+/IA_C2B_43
+1 'No aplica correctamente las preguntas de respuesta múltiple' 0 'No'
+/IA_C2B_44
+1 'No recoge correctamente las respuestas que no requieren codificación' 0 'No'
+/IA_C2B_45
+1 'No recoge fielmente las respuestas espontáneas' 0 'No'
+/IA_C3
+1 'Entrevista válida' 2 'Entrevista anulada'
+/IA_C4
+0 'Anonimizado'
+/INTENCIONG
+1 'PSOE' 2 'PP' 3 'VOX' 4 'Unidas Podemos' 5 'Ciudadanos' 6 'PACMA' 7 'Más País'
+8 'Podemos' 9 'IU' 10 'Los Verdes' 11 'EQUO' 12 'Falange Española de las JONS'
+13 'Escaños en Blanco' 14 'España 2000' 15 'Partido Libertario' 16 'Recortes Cero'
+17 'Partido Feminista de España' 18 'UPyD' 19 'PCPE' 20 'IGRE' 21 'Sumar' 22 'ACTUA'
+23 'Democracia Nacional' 24 'Partido Humanista' 25 'Por un Mundo más Justo (M+J)'
+26 'Caminando Juntos' 27 'Frente Obrero' 28 'Se Acabó la Fiesta' 101 'Adelante Andalucía'
+102 'Jaén Merece Más' 103 'Por Andalucía' 104 'Levanta Jaén' 105 'Juntos por Granada'
+106 'Por Huelva' 107 'Andalucía Por Sí' 201 'PAR' 202 'Teruel Existe' 203 'CHA'
+204 'Zaragoza en Común' 205 'IU-MOVIMIENTO SUMAR' 206 'PODEMOS-AV' 207 'EXISTE' 301 'FAC'
+401 'MÉS (PSM-Entesa)' 402 'PI (Proposta per les Illes)' 403 'MXME (Més per Menorca)'
+501 'CC-PNC' 502 'Nueva Canarias' 503 'CCa' 504 'PNC (Partido Nacionalista Canario)'
+505 'ASG' 506 'Drago Canarias Verdes' 601 'PRC' 801 'UPL' 802 'Soria Ya' 803 'Por Ávila'
+804 'Vía Burgalesa' 805 'Puede Palencia' 806 'Centrados (Segovia)' 807 'Zamora Decide'
+808 'España Vaciada' 809 'PREPAL' 810 'Por Zamora' 811 'Unión Regionalista'
+812 'Partido Castellano-Tierra Comunera-Recortes Cero' 813 'Coalición por el Bierzo'
+814 'Valladolid Toma la Palabra' 815 'En Común (IU-Movimiento Sumar-Verdes Equo)'
+816 'Podemos-Alianza Verde' 817 'Ahora Decide-España Vaciada'
+818 'Unidas Podemos Castilla y León (Podemos-IU-AV)' 901 'ERC' 902 'Junts'
+903 'En Comú Podem' 904 'CUP' 905 'PdeCat' 906 'Directe 68' 907 'CDC'
+908 'Barcelona pel Canvi' 909 'Crida Nacional per la República'
+910 'Poble Lliure (Front República)' 911 'PNC' 912 'Comuns Sumar' 913 'Cat-Junts+'
+914 'CUP-DT' 915 'Aliança Catalana' 916 'Alhora' 1001 'Compromís' 1002 'Bloc'
+1003 'Soms Valencians' 1004 'Compromís-Podemos-EUPV' 1101 'Extremadura Unida'
+1102 'JUNTOS-LEVANTA' 1103 'JUEX' 1201 'BNG' 1202 'En Común-Unidas Podemos'
+1203 'En Marea' 1204 'PAYJ (Partido Anticorrupción y Justicia)'
+1205 'Compromiso por Galicia' 1206 'Compostela Aberta' 1207 'Converxencia Galega'
+1208 'Terra Galega' 1209 'Anova-Irmandade Nacionalista' 1210 'Marea de Vigo'
+1211 'Marea Galeguista (En Marea-CompromisoXGalicia-Partido Galeguista)'
+1212 'Democracia Ourensana' 1213 'Espazo Común Galeguista' 1301 'Más Madrid' 1501 'UPN'
+1502 'Geroa Bai' 1601 'EAJ-PNV' 1602 'EH Bildu' 1603 'Elkarrekin Podemos-IU'
+1604 'Elkarrekin Podemos' 1605 'Sumar Euskadi' 1650 'PP+Ciudadanos' 1701 'Partido Riojano'
+1801 'Coalición Caballas' 1802 'MDyC' 1901 'Coalición por Melilla'
+5001 'Unidas Podemos Cambiar Europa' 5002 'Ahora Repúblicas'
+5003 'Junts i Lliures per Europa' 5004 'Por una Europa Solidaria'
+5005 'Compromiso por Europa' 5006 'Se Acabó la Fiesta' 5007 'La España Olvidada Existe'
+8995 'Otro partido' 8996 'En blanco' 9977 'Voto nulo' 9997 'No votaría'
+9998 'No sabe todavía' 9999 'N.C.' 0 'N.P.'
+/SIMPATIAR
+1 'PSOE' 2 'PP' 3 'VOX' 4 'Unidas Podemos' 5 'Ciudadanos' 6 'PACMA' 7 'Más País'
+8 'Podemos' 9 'IU' 10 'Los Verdes' 11 'EQUO' 12 'Falange Española de las JONS'
+13 'Escaños en Blanco' 14 'España 2000' 15 'Partido Libertario' 16 'Recortes Cero'
+17 'Partido Feminista de España' 18 'UPyD' 19 'PCPE' 20 'IGRE' 21 'Sumar' 22 'ACTUA'
+23 'Democracia Nacional' 24 'Partido Humanista' 25 'Por un Mundo más Justo (M+J)'
+26 'Caminando Juntos' 27 'Frente Obrero' 28 'Se Acabó la Fiesta' 101 'Adelante Andalucía'
+102 'Jaén Merece Más' 103 'Por Andalucía' 104 'Levanta Jaén' 105 'Juntos por Granada'
+106 'Por Huelva' 107 'Andalucía Por Sí' 201 'PAR' 202 'Teruel Existe' 203 'CHA'
+204 'Zaragoza en Común' 301 'FAC' 401 'MÉS (PSM-Entesa)' 402 'PI (Proposta per les Illes)'
+403 'MXME (Més per Menorca)' 501 'CC-PNC' 502 'Nueva Canarias' 503 'CCa'
+504 'PNC (Partido Nacionalista Canario)' 505 'ASG' 506 'Drago Canarias Verdes' 601 'PRC'
+801 'UPL' 802 'Soria Ya' 803 'Por Ávila' 804 'Vía Burgalesa' 805 'Puede Palencia'
+806 'Centrados (Segovia)' 807 'Zamora Decide' 808 'España Vaciada' 809 'PREPAL'
+810 'Por Zamora' 811 'Unión Regionalista'
+812 'Partido Castellano-Tierra Comunera-Recortes Cero' 813 'Coalición por el Bierzo'
+901 'ERC' 902 'Junts' 903 'En Comú Podem' 904 'CUP' 905 'PdeCat' 906 'Directe 68'
+907 'CDC' 908 'Barcelona pel Canvi' 909 'Crida Nacional per la República'
+910 'Poble Lliure (Front República)' 911 'PNC' 912 'Comuns Sumar' 913 'Cat-Junts+'
+914 'CUP-DT' 915 'Aliança Catalana' 916 'Alhora' 1001 'Compromís' 1002 'Bloc'
+1003 'Soms Valencians' 1004 'Compromís-Podemos-EUPV' 1101 'Extremadura Unida'
+1102 'JUNTOS-LEVANTA' 1103 'JUEX' 1201 'BNG' 1202 'En Común-Unidas Podemos'
+1203 'En Marea' 1204 'PAYJ (Partido Anticorrupción y Justicia)'
+1205 'Compromiso por Galicia' 1206 'Compostela Aberta' 1207 'Converxencia Galega'
+1208 'Terra Galega' 1209 'Anova-Irmandade Nacionalista' 1210 'Marea de Vigo'
+1211 'Marea Galeguista (En Marea-CompromisoXGalicia-Partido Galeguista)'
+1212 'Democracia Ourensana' 1301 'Más Madrid' 1501 'UPN' 1502 'Geroa Bai' 1601 'EAJ-PNV'
+1602 'EH Bildu' 1603 'Elkarrekin Podemos-IU' 1604 'Elkarrekin Podemos'
+1605 'Sumar Euskadi' 1650 'PP+Ciudadanos' 1701 'Partido Riojano' 1801 'Coalición Caballas'
+1802 'MDyC' 1901 'Coalición por Melilla' 5001 'Unidas Podemos Cambiar Europa'
+5002 'Ahora Repúblicas' 5003 'Junts i Lliures per Europa' 5004 'Por una Europa Solidaria'
+5005 'Compromiso por Europa' 5006 'Se Acabó la Fiesta' 5007 'La España Olvidada Existe'
+8995 'Otro partido' 8996 'En blanco' 9977 'Voto nulo' 9997 'Ninguno' 9998 'N.S.'
+9999 'N.C.' 0 'N.P.'
+/VOTOSIMG
+1 'PSOE' 2 'PP' 3 'VOX' 4 'Unidas Podemos' 5 'Ciudadanos' 6 'PACMA' 7 'Más País'
+8 'Podemos' 9 'IU' 10 'Los Verdes' 11 'EQUO' 12 'Falange Española de las JONS'
+13 'Escaños en Blanco' 14 'España 2000' 15 'Partido Libertario' 16 'Recortes Cero'
+17 'Partido Feminista de España' 18 'UPyD' 19 'PCPE' 20 'IGRE' 21 'Sumar' 22 'ACTUA'
+23 'Democracia Nacional' 24 'Partido Humanista' 25 'Por un Mundo más Justo (M+J)'
+26 'Caminando Juntos' 27 'Frente Obrero' 28 'Se Acabó la Fiesta' 101 'Adelante Andalucía'
+102 'Jaén Merece Más' 103 'Por Andalucía' 104 'Levanta Jaén' 105 'Juntos por Granada'
+106 'Por Huelva' 107 'Andalucía Por Sí' 201 'PAR' 202 'Teruel Existe' 203 'CHA'
+204 'Zaragoza en Común' 301 'FAC' 401 'MÉS (PSM-Entesa)' 402 'PI (Proposta per les Illes)'
+403 'MXME (Més per Menorca)' 501 'CC-PNC' 502 'Nueva Canarias' 503 'CCa'
+504 'PNC (Partido Nacionalista Canario)' 505 'ASG' 506 'Drago Canarias Verdes' 601 'PRC'
+801 'UPL' 802 'Soria Ya' 803 'Por Ávila' 804 'Vía Burgalesa' 805 'Puede Palencia'
+806 'Centrados (Segovia)' 807 'Zamora Decide' 808 'España Vaciada' 809 'PREPAL'
+810 'Por Zamora' 811 'Unión Regionalista'
+812 'Partido Castellano-Tierra Comunera-Recortes Cero' 813 'Coalición por el Bierzo'
+901 'ERC' 902 'Junts' 903 'En Comú Podem' 904 'CUP' 905 'PdeCat' 906 'Directe 68'
+907 'CDC' 908 'Barcelona pel Canvi' 909 'Crida Nacional per la República'
+910 'Poble Lliure (Front República)' 911 'PNC' 912 'Comuns Sumar' 913 'Cat-Junts+'
+914 'CUP-DT' 915 'Aliança Catalana' 916 'Alhora' 1001 'Compromís' 1002 'Bloc'
+1003 'Soms Valencians' 1004 'Compromís-Podemos-EUPV' 1101 'Extremadura Unida' 1103 'JUEX'
+1201 'BNG' 1202 'En Común-Unidas Podemos' 1203 'En Marea'
+1204 'PAYJ (Partido Anticorrupción y Justicia)' 1205 'Compromiso por Galicia'
+1206 'Compostela Aberta' 1207 'Converxencia Galega' 1208 'Terra Galega'
+1209 'Anova-Irmandade Nacionalista' 1210 'Marea de Vigo'
+1211 'Marea Galeguista (En Marea-CompromisoXGalicia-Partido Galeguista)'
+1212 'Democracia Ourensana' 1301 'Más Madrid' 1501 'UPN' 1502 'Geroa Bai' 1601 'EAJ-PNV'
+1602 'EH Bildu' 1603 'Elkarrekin Podemos-IU' 1604 'Elkarrekin Podemos'
+1605 'Sumar Euskadi' 1650 'PP+Ciudadanos' 1701 'Partido Riojano' 1801 'Coalición Caballas'
+1802 'MDyC' 1901 'Coalición por Melilla' 5001 'Unidas Podemos Cambiar Europa'
+5002 'Ahora Repúblicas' 5003 'Junts i Lliures per Europa' 5004 'Por una Europa Solidaria'
+5005 'Compromiso por Europa' 5006 'Se Acabó la Fiesta' 5007 'La España Olvidada Existe'
+8995 'Otro partido' 8996 'En blanco' 9977 'Voto nulo' 9997 'Ninguno' 9998 'N.S.'
+9999 'N.C.' 0 'N.P.'
+/RECUVOTOGR
+2 'PP' 1 'PSOE' 3 'VOX' 21 'Sumar' 901 'ERC' 902 'Junts' 1602 'EH Bildu' 1601 'EAJ-PNV'
+1201 'BNG' 503 'CCa' 1501 'UPN' 6 'PACMA' 8995 'Otro partido' 8996 'En blanco'
+9977 'Voto nulo' 9998 'N.R.' 9999 'N.C.' 0 'N.P.'
+/RECUERDO
+2 'PP' 1 'PSOE' 3 'VOX' 21 'Sumar' 901 'ERC' 902 'Junts' 1602 'EH Bildu' 1601 'EAJ-PNV'
+1201 'BNG' 503 'CCa' 1501 'UPN' 6 'PACMA' 8995 'Otro partido' 8996 'En blanco' 9977 'Nulo'
+9997 'No votó' 9995 'No tenía edad' 9996 'No tenía derecho a voto' 9998 'N.R.' 9999 'N.C.'
+0 'N.P.'
+/CERCANIAR
+1 'PSOE' 2 'PP' 3 'VOX' 4 'Unidas Podemos' 5 'Ciudadanos' 6 'PACMA' 7 'Más País'
+8 'Podemos' 9 'IU' 10 'Los Verdes' 11 'EQUO' 12 'Falange Española de las JONS'
+13 'Escaños en Blanco' 14 'España 2000' 15 'Partido Libertario' 16 'Recortes Cero'
+17 'Partido Feminista de España' 18 'UPyD' 19 'PCPE' 20 'IGRE' 21 'Sumar' 22 'ACTUA'
+23 'Democracia Nacional' 24 'Partido Humanista' 25 'Por un Mundo más Justo (M+J)'
+26 'Caminando Juntos' 27 'Frente Obrero' 28 'Se Acabó la Fiesta' 101 'Adelante Andalucía'
+102 'Jaén Merece Más' 103 'Por Andalucía' 104 'Levanta Jaén' 105 'Juntos por Granada'
+106 'Por Huelva' 107 'Andalucía Por Sí' 201 'PAR' 202 'Teruel Existe' 203 'CHA'
+204 'Zaragoza en Común' 301 'FAC' 401 'MÉS (PSM-Entesa)' 402 'PI (Proposta per les Illes)'
+403 'MXME (Més per Menorca)' 501 'CC-PNC' 502 'Nueva Canarias' 503 'CCa'
+504 'PNC (Partido Nacionalista Canario)' 505 'ASG' 506 'Drago Canarias Verdes' 601 'PRC'
+801 'UPL' 802 'Soria Ya' 803 'Por Ávila' 804 'Vía Burgalesa' 805 'Puede Palencia'
+806 'Centrados (Segovia)' 807 'Zamora Decide' 808 'España Vaciada' 809 'PREPAL'
+810 'Por Zamora' 811 'Unión Regionalista'
+812 'Partido Castellano-Tierra Comunera-Recortes Cero' 813 'Coalición por el Bierzo'
+901 'ERC' 902 'Junts' 903 'En Comú Podem' 904 'CUP' 905 'PdeCat' 906 'Directe 68'
+907 'CDC' 908 'Barcelona pel Canvi' 909 'Crida Nacional per la República'
+910 'Poble Lliure (Front República)' 911 'PNC' 912 'Comuns Sumar' 913 'Cat-Junts+'
+914 'CUP-DT' 915 'Aliança Catalana' 916 'Alhora' 1001 'Compromís' 1002 'Bloc'
+1003 'Soms Valencians' 1004 'Compromís-Podemos-EUPV' 1101 'Extremadura Unida'
+1102 'JUNTOS-LEVANTA' 1103 'JUEX' 1201 'BNG' 1202 'En Común-Unidas Podemos'
+1203 'En Marea' 1204 'PAYJ (Partido Anticorrupción y Justicia)'
+1205 'Compromiso por Galicia' 1206 'Compostela Aberta' 1207 'Converxencia Galega'
+1208 'Terra Galega' 1209 'Anova-Irmandade Nacionalista' 1210 'Marea de Vigo'
+1211 'Marea Galeguista (En Marea-CompromisoXGalicia-Partido Galeguista)'
+1212 'Democracia Ourensana' 1301 'Más Madrid' 1501 'UPN' 1502 'Geroa Bai' 1601 'EAJ-PNV'
+1602 'EH Bildu' 1603 'Elkarrekin Podemos-IU' 1604 'Elkarrekin Podemos'
+1605 'Sumar Euskadi' 1650 'PP+Ciudadanos' 1701 'Partido Riojano' 1801 'Coalición Caballas'
+1802 'MDyC' 1901 'Coalición por Melilla' 5001 'Unidas Podemos Cambiar Europa'
+5002 'Ahora Repúblicas' 5003 'Junts i Lliures per Europa' 5004 'Por una Europa Solidaria'
+5005 'Compromiso por Europa' 5006 'Se Acabó la Fiesta' 5007 'La España Olvidada Existe'
+8995 'Otro partido' 8996 'En blanco' 9977 'Voto nulo' 9997 'Ninguno' 9998 'N.S.'
+9999 'N.C.'
+/ESTUDIOS
+1 'Sin estudios' 2 'Primaria' 3 'Secundaria 1ª etapa' 4 'Secundaria 2ª etapa' 5 'F.P.'
+6 'Superiores' 7 'Otros' 9 'N.C.'
+/CNO11R
+1 'Directores/as y gerentes' 2 'Profesionales, científicos/as e intelectuales'
+3 'Técnicos/as y profesionales de nivel medio' 4 'Personal de apoyo administrativo'
+5 'Trabajadores/as de los servicios y vendedores/as de comercios y mercados'
+6 'Agricultores/as y trabajadores/as agropecuarios/as, forestales y pesqueros/as'
+7 'Oficiales/as, operarios/as y artesanos/as'
+8 'Operadores/as de instalaciones y máquinas y ensambladores/as'
+9 'Ocupaciones elementales' 10 'Ocupaciones militares y cuerpos policiales'
+11 'Otra ocupación' 12 'Jubilado o pensionista (anteriormente ha trabajado)'
+13 'Estudiante' 14 'Trabajo doméstico no remunerado' 15 'Otra situación inactiva'
+16 'Parados/as' 99 'N.C.'
+/CLASESUB
+1 'Clase alta y media alta' 2 'Clase media-media' 3 'Clase media-baja'
+4 'Clase trabajadora/obrera/proletariado' 5 'Clase baja/pobre' 6 'Otras' 8 'N.S.' 9 'N.C.'
+/PESO
+/PESOCCAA
+.
+EXECUTE.
+
+MISSING VALUES
+ADQUINAC (0) PAISNAC2 (0) P6 (0) P7 (0) P8 (0) P9 (0) P10 (0) P10A (0) P12 (0) P15_B_1 (0)
+P15_B_2 (0) P15_B_3 (0) P15_B_4 (0) P15_B_5 (0) P15_B_6 (0) P18_A_1 (0) P18_A_2 (0)
+P18_A_3 (0) P18_A_4 (0) P18_B_1 (0) P18_B_2 (0) P18_B_3 (0) P18_B_4 (0) P19 (0)
+P22_B_1 (0) P22_B_2 (0) P22_B_3 (0) P22_B_4 (0) P22_B_5 (0) P22_B_6 (0) P22_B_7 (0)
+PROBVOTO (97) INTENCIONGR (0) SIMPATIA (0) VOTOSIMGR (0) PREFPTE (0) P28 (0)
+PARTICIPACIONG (0) RECUVOTOG (0) CERCANIAR2 (0) NIVELESTENTREV (0) PRACTICARELIG6 (0)
+RELALAB (0) CNO11 (0) INTENCIONG (0) SIMPATIAR (0) VOTOSIMG (0) RECUVOTOGR (0)
+RECUERDO (0).
+EXECUTE.
+WEIGHT BY PESO.

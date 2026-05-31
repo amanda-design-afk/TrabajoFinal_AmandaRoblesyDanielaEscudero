@@ -1,0 +1,544 @@
+---
+title: "Análisis Comparativo CIS 3501 y CIS 3555"
+subtitle: "Sexualidad, relaciones de pareja y actitudes en España"
+author: "Daniela Escudero & Amanda Robles"
+date: "`r format(Sys.Date(), '%d de %B de %Y')`"
+output:
+  ioslides_presentation:
+    widescreen: true
+    smaller: true
+    transition: faster
+    css: styles.css
+lang: es
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo    = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  fig.align = "center"
+)
+
+library(haven)
+library(tidyverse)
+library(psych)
+library(knitr)
+library(kableExtra)
+
+# ── Carga de datos ──────────────────────────────────────────────────────────
+d3501 <- read_sav("3501.sav")
+d3555 <- read_sav("3555.sav")
+
+# ── Selección y renombrado ───────────────────────────────────────────────────
+e3501 <- d3501 |>
+  select(sexo=SEXO, edad=EDAD, estudios=ESTUDIOS, religion=RELIGION,
+         ideologia=ESCIDEOL, peso=PESO,
+         imp_pareja=P1, prej_sexo=P6_1, consen=P6_2, deseo_gen=P6_3,
+         penet=P6_4, fluidez=P6_5, satisf=P11, orientac=P12R, pareja_sit=PAREJA) |>
+  mutate(estudio = "E-3501 (Ene 2025)")
+
+e3555 <- d3555 |>
+  select(sexo=SEXO, edad=EDAD, estudios=ESTUDIOS, religion=RELIGION,
+         ideologia=ESCIDEOL, peso=PESO,
+         imp_pareja=P1, prej_sexo=P4_6, igual_gen=P4_4, libertad=P4_2,
+         inestable=P4_1, apertura=P16, uso_prod=P17, orientac=P13) |>
+  mutate(estudio = "E-3555 (Mar 2026)")
+
+# ── Recodificaciones ─────────────────────────────────────────────────────────
+recodificar_sexo <- function(df)
+  df |> mutate(sexo = case_when(sexo==1~"Hombre", sexo==2~"Mujer", TRUE~NA_character_))
+
+recodificar_edad <- function(df)
+  df |> mutate(grupo_edad = case_when(
+    edad>=18 & edad<=34 ~ "18-34",
+    edad>=35 & edad<=54 ~ "35-54",
+    edad>=55            ~ "55 y más",
+    TRUE                ~ NA_character_))
+
+recodificar_educ <- function(df)
+  df |> mutate(
+    educ3   = case_when(estudios %in% c(1,2,3)~"Bajo", estudios %in% c(4,5)~"Medio",
+                        estudios==6~"Alto", TRUE~NA_character_),
+    educ_num = case_when(estudios %in% c(1,2,3)~1, estudios %in% c(4,5)~2,
+                         estudios==6~3, TRUE~NA_real_))
+
+limpiar_nsn <- function(x) ifelse(x %in% c(8,9), NA, x)
+
+e3501 <- e3501 |> recodificar_sexo() |> recodificar_edad() |> recodificar_educ() |>
+  mutate(imp_pareja = ifelse(imp_pareja %in% c(8,9), NA, imp_pareja),
+         across(c(prej_sexo, consen, deseo_gen, penet, fluidez, satisf), limpiar_nsn),
+         prej_sexo_i = 6 - prej_sexo,
+         consen_i    = 6 - consen,
+         fluidez_i   = 6 - fluidez,
+         idx_actitud = prej_sexo_i + consen_i + deseo_gen + penet + fluidez_i,
+         tiene_pareja = case_when(pareja_sit %in% c(2,3)~1, pareja_sit==4~0, TRUE~NA_real_),
+         sexo_num     = ifelse(sexo=="Mujer", 1, 0))
+
+e3555 <- e3555 |> recodificar_sexo() |> recodificar_edad() |> recodificar_educ() |>
+  mutate(imp_pareja = case_when(imp_pareja==1~1, imp_pareja==2~2,
+                                imp_pareja==3~NA_real_, imp_pareja==4~3,
+                                imp_pareja==5~4, TRUE~NA_real_),
+         across(c(prej_sexo, igual_gen, libertad, inestable, apertura), limpiar_nsn),
+         prej_sexo_inv = 6 - prej_sexo,
+         uso_prod_bin  = case_when(uso_prod==1~1, uso_prod==2~0, TRUE~NA_real_),
+         sexo_num      = ifelse(sexo=="Mujer", 1, 0))
+
+col_estudios <- c("E-3501 (Ene 2025)"="#2C7BB6", "E-3555 (Mar 2026)"="#D7191C")
+```
+
+------------------------------------------------------------------------
+
+## Índice {.build}
+
+1.  Presentación y objetivos
+2.  Fuentes de datos
+3.  Constructos y variables
+4.  Consistencia interna — Alpha de Cronbach
+5.  Análisis descriptivo
+6.  Análisis por subgrupos
+7.  ANOVA
+8.  Tablas de contingencia — Chi² y V de Cramér
+9.  Regresión lineal
+10. Regresión logística — Odds Ratios
+11. Visualizaciones
+12. Conclusiones
+
+------------------------------------------------------------------------
+
+# 1 · Presentación y objetivos {data-background="#2C7BB6"}
+
+## Presentación y objetivos
+
+**Asignatura:** Data Science· Grado en Sociología · USAL · 2025–2026
+
+### ¿Qué analizamos?
+
+Comparamos dos barómetros del **CIS** sobre sexualidad y relaciones de pareja:
+
+| Estudio    | Título                            | Fecha      |
+|------------|-----------------------------------|------------|
+| **E-3501** | *Relaciones sexuales y de pareja* | Enero 2025 |
+| **E-3555** | *Sexualidad: hábitos y opiniones* | Marzo 2026 |
+
+### Objetivos
+
+-   Evaluar la **consistencia interna** de los constructos de medida.
+-   Analizar la **variación sociodemográfica** en actitudes hacia la sexualidad.
+-   Detectar **diferencias entre momentos temporales** controlando el perfil muestral.
+
+------------------------------------------------------------------------
+
+# 2 · Fuentes de datos {data-background="#2C7BB6"}
+
+## Fuentes de datos
+
+```{r ficha-tecnica}
+tibble(
+  Característica = c("Población", "Ámbito", "Tamaño muestral (aprox.)",
+                     "Diseño muestral", "Recogida de datos"),
+  `E-3501 (2025)` = c("Población española ≥ 18 años", "Nacional",
+                       formatC(nrow(d3501), big.mark="."),
+                       "Polietápico, estratificado", "Entrevista personal (CAPI)"),
+  `E-3555 (2026)` = c("Población española ≥ 18 años", "Nacional",
+                       formatC(nrow(d3555), big.mark="."),
+                       "Polietápico, estratificado", "Entrevista personal (CAPI)")
+) |>
+  kable() |>
+  kable_styling(font_size = 16, bootstrap_options = c("striped","hover"))
+```
+
+> **Nota:** Los estudios son muestras independientes
+
+------------------------------------------------------------------------
+
+# 3 · Constructos y variables {data-background="#2C7BB6"}
+
+## Constructo A — Importancia de tener pareja
+
+|   | E-3501 | E-3555 |
+|------------------|---------------------------|---------------------------|
+| **Pregunta** | P1: ¿Qué importancia tiene para usted tener pareja? | P1: ¿Qué importancia tiene tener una relación sentimental? |
+| **Escala** | 1=Muy importante … 4=Nada importante | 1=Muy importante … 5=Nada importante *(opción "Regular" excluida)* |
+| **Armonización** | — | Se recodifica a escala 1–4 eliminando la categoría central |
+
+## Constructo B — Actitudes hacia la sexualidad
+
+| Ítem                      | E-3501 (P6) | E-3555 (P4)        |
+|---------------------------|-------------|--------------------|
+| Prejuicios sexuales       | P6_1        | P4_6 **invertida** |
+| Consentimiento / igualdad | P6_2        | P4_4               |
+| Roles de género           | P6_3        | P4_2               |
+| Definición de sexualidad  | P6_4        | P4_1               |
+| Fluidez / apertura        | P6_5        | P16                |
+
+------------------------------------------------------------------------
+
+# 4 · Consistencia interna {data-background="#2C7BB6"}
+
+## Alpha de Cronbach — Constructo B (E-3501, P6)
+
+```{r alpha-slide}
+items_p6 <- e3501 |> select(prej_sexo, consen, deseo_gen, penet, fluidez) |> drop_na()
+alpha_res <- psych::alpha(items_p6)
+
+tibble(
+  Estadístico = c("Alpha de Cronbach (bruto)", "Alpha estandarizado",
+                  "Correlación media inter-ítem", "N válido"),
+  Valor = c(round(alpha_res$total$raw_alpha, 3),
+            round(alpha_res$total$std.alpha, 3),
+            round(alpha_res$total$average_r, 3),
+            nrow(items_p6))
+) |>
+  kable() |>
+  kable_styling(font_size = 18, bootstrap_options = c("striped","hover"),
+                full_width = FALSE)
+```
+
+### Criterios de interpretación
+
+-   α **≥ 0,70** → consistencia **aceptable** → índice sumativo válido\
+-   α entre 0,60–0,70 → consistencia **marginal** → usar con cautela\
+-   α **\< 0,60** → analizar ítems de forma **independiente**
+
+------------------------------------------------------------------------
+
+# 5 · Análisis descriptivo {data-background="#2C7BB6"}
+
+## Importancia de tener pareja/relación sentimental
+
+```{r desc-slide, fig.height=4}
+etiq <- c("1"="Muy imp.","2"="Bastante imp.","3"="Poco imp.","4"="Nada imp.")
+
+bind_rows(
+  e3501 |> filter(!is.na(imp_pareja)) |> count(imp_pareja, estudio) |>
+    mutate(pct = n/sum(n)*100),
+  e3555 |> filter(!is.na(imp_pareja)) |> count(imp_pareja, estudio) |>
+    mutate(pct = n/sum(n)*100)
+) |>
+  mutate(etiqueta = etiq[as.character(imp_pareja)]) |>
+  ggplot(aes(x = etiqueta, y = pct, fill = estudio)) +
+  geom_col(position = "dodge", width = 0.65) +
+  scale_fill_manual(values = col_estudios) +
+  labs(x = NULL, y = "Porcentaje (%)", fill = NULL,
+       caption = "Escala 1–4: 1 = Muy importante, 4 = Nada importante") +
+  theme_minimal(base_size = 13) +
+  theme(legend.position = "bottom")
+```
+
+------------------------------------------------------------------------
+
+# 6 · Análisis por subgrupos {data-background="#2C7BB6"}
+
+## Índice de actitudes por sexo y edad (E-3501)
+
+```{r subgrupos-slide, fig.height=4}
+e3501 |>
+  filter(!is.na(idx_actitud), !is.na(grupo_edad), !is.na(sexo)) |>
+  group_by(grupo_edad, sexo) |>
+  summarise(media = mean(idx_actitud, na.rm=TRUE),
+            se    = sd(idx_actitud, na.rm=TRUE)/sqrt(n()), .groups="drop") |>
+  ggplot(aes(x=grupo_edad, y=media, color=sexo, group=sexo)) +
+  geom_line(linewidth=1.2) +
+  geom_point(size=4) +
+  geom_errorbar(aes(ymin=media-1.96*se, ymax=media+1.96*se), width=0.2) +
+  scale_color_manual(values=c("Hombre"="#2C7BB6","Mujer"="#D7191C")) +
+  labs(x="Grupo de edad", y="Media del índice", color=NULL,
+       caption="Escala 5–25: mayor puntuación = actitudes más conservadoras") +
+  theme_minimal(base_size=13) +
+  theme(legend.position="bottom")
+```
+
+------------------------------------------------------------------------
+
+# 7 · ANOVA {data-background="#2C7BB6"}
+
+## ¿Son significativas las diferencias entre subgrupos?
+
+```{r anova-slide}
+tabla_anova <- function(formula_str, datos, etiqueta) {
+  s <- summary(aov(as.formula(formula_str), data=datos))[[1]]
+  tibble(Análisis=etiqueta,
+         F=round(s$`F value`[1],2),
+         gl=paste0(s$Df[1],"/",s$Df[2]),
+         p=format.pval(s$`Pr(>F)`[1], digits=3))
+}
+
+bind_rows(
+  tabla_anova("idx_actitud ~ grupo_edad", e3501, "Actitudes × Edad (E-3501)"),
+  tabla_anova("idx_actitud ~ sexo",       e3501, "Actitudes × Sexo (E-3501)"),
+  tabla_anova("idx_actitud ~ educ3",      e3501, "Actitudes × Educación (E-3501)"),
+  tabla_anova("apertura ~ grupo_edad",    e3555, "Apertura × Edad (E-3555)"),
+  tabla_anova("apertura ~ sexo",          e3555, "Apertura × Sexo (E-3555)")
+) |>
+  kable(col.names=c("Análisis","F","gl (factor/error)","p-valor")) |>
+  kable_styling(font_size=16, bootstrap_options=c("striped","hover")) |>
+  footnote(general="p < 0,05 indica diferencias estadísticamente significativas.")
+```
+
+------------------------------------------------------------------------
+
+# 8 · Chi² y V de Cramér {data-background="#2C7BB6"}
+
+## Asociación entre variables categóricas
+
+```{r chi2-slide}
+calc_cont <- function(v1, v2, nombre) {
+  tab   <- table(v1, v2, useNA="no")
+  chi   <- chisq.test(tab)
+  v_c   <- sqrt(chi$statistic/(sum(tab)*(min(dim(tab))-1)))
+  tibble(Análisis=nombre,
+         `χ²`=round(chi$statistic,2),
+         gl=chi$parameter,
+         p=format.pval(chi$p.value,digits=3),
+         `V Cramér`=round(v_c,3))
+}
+
+bind_rows(
+  calc_cont(
+    e3501 |> filter(orientac %in% c(1,2,3)) |>
+      mutate(or=recode(as.integer(orientac),`1`="Heterosexual",`2`="Homosexual",`3`="Bisexual")) |> pull(or),
+    e3501 |> filter(orientac %in% c(1,2,3)) |> pull(sexo),
+    "Orientación × Sexo (E-3501)"),
+  calc_cont(
+    e3555 |> filter(orientac %in% c(1,2,3,4)) |>
+      mutate(or=recode(as.integer(orientac),`1`="Heterosexual",`2`="Homosexual",
+                       `3`="Bisexual",`4`="Asexual")) |> pull(or),
+    e3555 |> filter(orientac %in% c(1,2,3,4)) |> pull(sexo),
+    "Orientación × Sexo (E-3555)"),
+  calc_cont(
+    e3501 |> filter(!is.na(tiene_pareja)) |>
+      mutate(tp=recode(as.character(tiene_pareja),"1"="Con pareja","0"="Sin pareja")) |> pull(tp),
+    e3501 |> filter(!is.na(tiene_pareja)) |> pull(grupo_edad),
+    "Tiene pareja × Edad (E-3501)"),
+  calc_cont(
+    e3555 |> filter(!is.na(uso_prod_bin)) |>
+      mutate(up=recode(as.character(uso_prod_bin),"1"="Sí","0"="No")) |> pull(up),
+    e3555 |> filter(!is.na(uso_prod_bin)) |> pull(sexo),
+    "Uso productos × Sexo (E-3555)")
+) |>
+  kable() |>
+  kable_styling(font_size=15, bootstrap_options=c("striped","hover")) |>
+  footnote(general="V Cramér: < 0,10 débil | 0,10–0,30 moderada | > 0,30 fuerte")
+```
+
+------------------------------------------------------------------------
+
+# 9 · Regresión lineal {data-background="#2C7BB6"}
+
+## Modelo 1 — Predictores del índice de actitudes (E-3501)
+
+```{r reg-lineal-slide}
+modelo1 <- lm(idx_actitud ~ sexo_num + edad + educ_num + ideologia,
+              data=e3501, na.action=na.exclude)
+
+broom::tidy(modelo1) |>
+  filter(term != "(Intercept)") |>
+  mutate(term = recode(term,
+    "sexo_num"  = "Mujer (vs. Hombre)",
+    "edad"      = "Edad",
+    "educ_num"  = "Nivel educativo",
+    "ideologia" = "Ideología (dcha.)"),
+    estimate  = round(estimate, 3),
+    std.error = round(std.error, 3),
+    statistic = round(statistic, 2),
+    p.value   = format.pval(p.value, digits=3),
+    sig       = case_when(
+      as.numeric(gsub("<","",p.value)) < 0.001 ~ "***",
+      as.numeric(gsub("<","",p.value)) < 0.01  ~ "**",
+      as.numeric(gsub("<","",p.value)) < 0.05  ~ "*",
+      TRUE ~ "")) |>
+  select(Variable=term, β=estimate, SE=std.error, t=statistic, p=p.value, ` `=sig) |>
+  kable() |>
+  kable_styling(font_size=16, bootstrap_options=c("striped","hover"), full_width=FALSE) |>
+  footnote(general=paste0("R² = ", round(summary(modelo1)$r.squared,3),
+                          " | R² ajustado = ", round(summary(modelo1)$adj.r.squared,3)))
+```
+
+> Coeficiente **negativo** en *Mujer* → actitudes menos conservadoras controlando por el resto de predictores.
+
+------------------------------------------------------------------------
+
+## Modelo 2 — Importancia de la pareja (datos combinados)
+
+```{r reg-lineal2-slide}
+datos_comb <- bind_rows(
+  e3501 |> select(imp_pareja, sexo_num, edad, educ_num, ideologia) |> mutate(estudio_dummy=0),
+  e3555 |> select(imp_pareja, sexo_num, edad, educ_num, ideologia) |> mutate(estudio_dummy=1))
+
+modelo2 <- lm(imp_pareja ~ sexo_num + edad + educ_num + ideologia + estudio_dummy,
+              data=datos_comb, na.action=na.exclude)
+
+broom::tidy(modelo2) |>
+  filter(term != "(Intercept)") |>
+  mutate(term = recode(term,
+    "sexo_num"      = "Mujer (vs. Hombre)",
+    "edad"          = "Edad",
+    "educ_num"      = "Nivel educativo",
+    "ideologia"     = "Ideología (dcha.)",
+    "estudio_dummy" = "Estudio (E-3555 vs. E-3501)"),
+    estimate  = round(estimate, 3),
+    std.error = round(std.error, 3),
+    statistic = round(statistic, 2),
+    p.value   = format.pval(p.value, digits=3)) |>
+  select(Variable=term, β=estimate, SE=std.error, t=statistic, p=p.value) |>
+  kable() |>
+  kable_styling(font_size=16, bootstrap_options=c("striped","hover"), full_width=FALSE) |>
+  footnote(general="Si 'Estudio' es significativo → diferencia entre encuestas no explicada por el perfil muestral.")
+```
+
+------------------------------------------------------------------------
+
+# 10 · Regresión logística {data-background="#2C7BB6"}
+
+## Odds Ratios — Modelos 3 y 4
+
+```{r logistica-slide, fig.height=4}
+modelo3 <- glm(tiene_pareja ~ sexo_num + edad + educ_num + ideologia,
+               data=e3501, family=binomial(link="logit"), na.action=na.exclude)
+modelo4 <- glm(uso_prod_bin ~ sexo_num + edad + educ_num + ideologia,
+               data=e3555, family=binomial(link="logit"), na.action=na.exclude)
+
+extraer_or <- function(modelo, nombre) {
+  or <- exp(coef(modelo))
+  ci <- exp(suppressMessages(confint(modelo)))
+  tibble(variable=names(or)[-1], OR=or[-1],
+         IC_inf=ci[-1,1], IC_sup=ci[-1,2], modelo=nombre)
+}
+
+datos_or <- bind_rows(
+  extraer_or(modelo3, "Modelo 3: Tiene pareja (E-3501)"),
+  extraer_or(modelo4, "Modelo 4: Usa productos eróticos (E-3555)")
+) |>
+  mutate(variable = recode(variable,
+    "sexo_num"  = "Mujer (vs. Hombre)",
+    "edad"      = "Edad",
+    "educ_num"  = "Nivel educativo",
+    "ideologia" = "Ideología (dcha.)"))
+
+ggplot(datos_or, aes(x=OR, y=variable, color=modelo, shape=modelo)) +
+  geom_vline(xintercept=1, linetype="dashed", color="grey50") +
+  geom_errorbar(aes(xmin=IC_inf, xmax=IC_sup), width=0.2,
+                position=position_dodge(0.5), orientation="y") +
+  geom_point(size=3.5, position=position_dodge(0.5)) +
+  scale_color_manual(values=c("Modelo 3: Tiene pareja (E-3501)"="#2C7BB6",
+                               "Modelo 4: Usa productos eróticos (E-3555)"="#D7191C")) +
+  labs(x="Odds Ratio", y=NULL, color=NULL, shape=NULL,
+       caption="IC al 95 %. Línea discontinua: OR = 1 (sin efecto)") +
+  theme_minimal(base_size=13) +
+  theme(legend.position="bottom")
+```
+
+------------------------------------------------------------------------
+
+# 11 · Visualizaciones {data-background="#2C7BB6"}
+
+## Comparación entre estudios — Importancia de la pareja
+
+```{r g1-slide, fig.height=4}
+datos_g1 <- bind_rows(
+  e3501 |> filter(!is.na(imp_pareja),!is.na(sexo),!is.na(grupo_edad)) |>
+    group_by(sexo, grupo_edad, estudio) |>
+    summarise(media=mean(imp_pareja,na.rm=TRUE), .groups="drop"),
+  e3555 |> filter(!is.na(imp_pareja),!is.na(sexo),!is.na(grupo_edad)) |>
+    group_by(sexo, grupo_edad, estudio) |>
+    summarise(media=mean(imp_pareja,na.rm=TRUE), .groups="drop"))
+
+ggplot(datos_g1, aes(x=grupo_edad, y=media, fill=estudio)) +
+  geom_col(position="dodge", width=0.7) +
+  facet_wrap(~sexo) +
+  scale_fill_manual(values=col_estudios) +
+  labs(x="Grupo de edad", y="Media", fill=NULL,
+       caption="Escala 1–4: 1=Muy importante, 4=Nada importante") +
+  theme_minimal(base_size=12) +
+  theme(legend.position="bottom")
+```
+
+------------------------------------------------------------------------
+
+## Percepción de prejuicios sobre el sexo
+
+```{r g3-slide, fig.height=4.2}
+datos_g3 <- bind_rows(
+  e3501 |> filter(!is.na(prej_sexo_i),!is.na(grupo_edad),!is.na(sexo)) |>
+    mutate(prej_comp=prej_sexo_i) |>
+    group_by(grupo_edad,sexo,estudio) |>
+    summarise(media=mean(prej_comp,na.rm=TRUE),.groups="drop"),
+  e3555 |> filter(!is.na(prej_sexo_inv),!is.na(grupo_edad),!is.na(sexo)) |>
+    mutate(prej_comp=prej_sexo_inv) |>
+    group_by(grupo_edad,sexo,estudio) |>
+    summarise(media=mean(prej_comp,na.rm=TRUE),.groups="drop"))
+
+ggplot(datos_g3, aes(x=grupo_edad,y=media,color=sexo,
+                     linetype=estudio,group=interaction(sexo,estudio))) +
+  geom_line(linewidth=1.1) +
+  geom_point(size=3) +
+  scale_color_manual(values=c("Hombre"="#2C7BB6","Mujer"="#D7191C")) +
+  labs(x="Grupo de edad", y="Media", color=NULL, linetype=NULL,
+       caption="Escala 1–5: mayor = más prejuicios percibidos") +
+  theme_minimal(base_size=12) +
+  theme(legend.position="bottom")
+```
+
+------------------------------------------------------------------------
+
+## Distribución de orientación sexual
+
+```{r g4-slide, fig.height=4.2}
+datos_g4 <- bind_rows(
+  e3501 |> filter(orientac %in% c(1,2,3)) |>
+    mutate(or=recode(as.integer(orientac),`1`="Heterosexual",`2`="Homosexual",`3`="Bisexual")) |>
+    count(or, estudio) |> mutate(pct=n/sum(n)*100),
+  e3555 |> filter(orientac %in% c(1,2,3,4)) |>
+    mutate(or=recode(as.integer(orientac),`1`="Heterosexual",`2`="Homosexual",
+                     `3`="Bisexual",`4`="Asexual")) |>
+    count(or, estudio) |> mutate(pct=n/sum(n)*100))
+
+ggplot(datos_g4, aes(x=reorder(or,-pct), y=pct, fill=estudio)) +
+  geom_col(position="dodge", width=0.6) +
+  scale_fill_manual(values=col_estudios) +
+  labs(x=NULL, y="Porcentaje (%)", fill=NULL) +
+  theme_minimal(base_size=12) +
+  theme(legend.position="bottom")
+```
+
+------------------------------------------------------------------------
+
+# 12 · Conclusiones {data-background="#2C7BB6"}
+
+## Conclusiones principales {.build}
+
+**Consistencia interna**
+
+-   El alpha de Cronbach indica si los ítems de P6 forman un constructo fiable para el análisis comparado.
+
+**Variación sociodemográfica**
+
+-   Las actitudes más conservadoras se concentran en los grupos de mayor edad, menor nivel educativo y posicionamiento ideológico más a la derecha.
+-   Las mujeres puntúan consistentemente más bajo en el índice de actitudes estereotipadas.
+
+**Comparación temporal (2025–2026)**
+
+-   La dummy de estudio en el Modelo 2 ofrece un test directo de si la importancia atribuida a la pareja ha variado entre encuestas, controlando el perfil sociodemográfico.
+
+**Limitación principal**
+
+> Los estudios son muestras **independientes**, no un panel. Cualquier diferencia puede deberse a variación muestral, diferencias en el cuestionario o cambios reales en la población.
+
+------------------------------------------------------------------------
+
+## Referencias
+
+**Fuentes de datos**
+
+-   CIS (2025). *Estudio 3501: Relaciones sexuales y de pareja*. Madrid: Centro de Investigaciones Sociológicas.
+-   CIS (2026). *Estudio 3555: Sexualidad: hábitos y opiniones*. Madrid: Centro de Investigaciones Sociológicas.
+
+**Software**
+
+-   R Core Team (2025). *R: A language and environment for statistical computing*. R Foundation.
+-   Paquetes: `haven`, `tidyverse`, `psych`, `knitr`, `kableExtra`, `broom`.
+
+------------------------------------------------------------------------
+
+*Data Science (109669) · Grado en Sociología · Universidad de Salamanca · 2025–2026*
